@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1BD639FC24CF950E00FAB9A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD639FB24CF950E00FAB9A6 /* AppDelegate.swift */; };
+		1BD639FE24CF950E00FAB9A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD639FD24CF950E00FAB9A6 /* SceneDelegate.swift */; };
+		1BD63A0024CF950E00FAB9A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD639FF24CF950E00FAB9A6 /* ContentView.swift */; };
+		1BD63A0224CF950E00FAB9A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD63A0124CF950E00FAB9A6 /* Assets.xcassets */; };
+		1BD63A0524CF950E00FAB9A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD63A0424CF950E00FAB9A6 /* Preview Assets.xcassets */; };
+		1BD63A0824CF950E00FAB9A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD63A0624CF950E00FAB9A6 /* LaunchScreen.storyboard */; };
+		1BD63A1324CF950E00FAB9A6 /* Dream_JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD63A1224CF950E00FAB9A6 /* Dream_JournalTests.swift */; };
+		1BD63A1E24CF950E00FAB9A6 /* Dream_JournalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD63A1D24CF950E00FAB9A6 /* Dream_JournalUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1BD63A0F24CF950E00FAB9A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1BD639F024CF950D00FAB9A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BD639F724CF950E00FAB9A6;
+			remoteInfo = "Dream Journal";
+		};
+		1BD63A1A24CF950E00FAB9A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1BD639F024CF950D00FAB9A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BD639F724CF950E00FAB9A6;
+			remoteInfo = "Dream Journal";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1BD639F824CF950E00FAB9A6 /* Dream Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BD639FB24CF950E00FAB9A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1BD639FD24CF950E00FAB9A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1BD639FF24CF950E00FAB9A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1BD63A0124CF950E00FAB9A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1BD63A0424CF950E00FAB9A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1BD63A0724CF950E00FAB9A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1BD63A0924CF950E00FAB9A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BD63A0E24CF950E00FAB9A6 /* Dream JournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dream JournalTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BD63A1224CF950E00FAB9A6 /* Dream_JournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream_JournalTests.swift; sourceTree = "<group>"; };
+		1BD63A1424CF950E00FAB9A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BD63A1924CF950E00FAB9A6 /* Dream JournalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dream JournalUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BD63A1D24CF950E00FAB9A6 /* Dream_JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream_JournalUITests.swift; sourceTree = "<group>"; };
+		1BD63A1F24CF950E00FAB9A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1BD639F524CF950E00FAB9A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BD63A0B24CF950E00FAB9A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BD63A1624CF950E00FAB9A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1BD639EF24CF950D00FAB9A6 = {
+			isa = PBXGroup;
+			children = (
+				1BD639FA24CF950E00FAB9A6 /* Dream Journal */,
+				1BD63A1124CF950E00FAB9A6 /* Dream JournalTests */,
+				1BD63A1C24CF950E00FAB9A6 /* Dream JournalUITests */,
+				1BD639F924CF950E00FAB9A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1BD639F924CF950E00FAB9A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1BD639F824CF950E00FAB9A6 /* Dream Journal.app */,
+				1BD63A0E24CF950E00FAB9A6 /* Dream JournalTests.xctest */,
+				1BD63A1924CF950E00FAB9A6 /* Dream JournalUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1BD639FA24CF950E00FAB9A6 /* Dream Journal */ = {
+			isa = PBXGroup;
+			children = (
+				1BD639FB24CF950E00FAB9A6 /* AppDelegate.swift */,
+				1BD639FD24CF950E00FAB9A6 /* SceneDelegate.swift */,
+				1BD639FF24CF950E00FAB9A6 /* ContentView.swift */,
+				1BD63A0124CF950E00FAB9A6 /* Assets.xcassets */,
+				1BD63A0624CF950E00FAB9A6 /* LaunchScreen.storyboard */,
+				1BD63A0924CF950E00FAB9A6 /* Info.plist */,
+				1BD63A0324CF950E00FAB9A6 /* Preview Content */,
+			);
+			path = "Dream Journal";
+			sourceTree = "<group>";
+		};
+		1BD63A0324CF950E00FAB9A6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1BD63A0424CF950E00FAB9A6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1BD63A1124CF950E00FAB9A6 /* Dream JournalTests */ = {
+			isa = PBXGroup;
+			children = (
+				1BD63A1224CF950E00FAB9A6 /* Dream_JournalTests.swift */,
+				1BD63A1424CF950E00FAB9A6 /* Info.plist */,
+			);
+			path = "Dream JournalTests";
+			sourceTree = "<group>";
+		};
+		1BD63A1C24CF950E00FAB9A6 /* Dream JournalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1BD63A1D24CF950E00FAB9A6 /* Dream_JournalUITests.swift */,
+				1BD63A1F24CF950E00FAB9A6 /* Info.plist */,
+			);
+			path = "Dream JournalUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1BD639F724CF950E00FAB9A6 /* Dream Journal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BD63A2224CF950E00FAB9A6 /* Build configuration list for PBXNativeTarget "Dream Journal" */;
+			buildPhases = (
+				1BD639F424CF950E00FAB9A6 /* Sources */,
+				1BD639F524CF950E00FAB9A6 /* Frameworks */,
+				1BD639F624CF950E00FAB9A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dream Journal";
+			productName = "Dream Journal";
+			productReference = 1BD639F824CF950E00FAB9A6 /* Dream Journal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1BD63A0D24CF950E00FAB9A6 /* Dream JournalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BD63A2524CF950E00FAB9A6 /* Build configuration list for PBXNativeTarget "Dream JournalTests" */;
+			buildPhases = (
+				1BD63A0A24CF950E00FAB9A6 /* Sources */,
+				1BD63A0B24CF950E00FAB9A6 /* Frameworks */,
+				1BD63A0C24CF950E00FAB9A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1BD63A1024CF950E00FAB9A6 /* PBXTargetDependency */,
+			);
+			name = "Dream JournalTests";
+			productName = "Dream JournalTests";
+			productReference = 1BD63A0E24CF950E00FAB9A6 /* Dream JournalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1BD63A1824CF950E00FAB9A6 /* Dream JournalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BD63A2824CF950E00FAB9A6 /* Build configuration list for PBXNativeTarget "Dream JournalUITests" */;
+			buildPhases = (
+				1BD63A1524CF950E00FAB9A6 /* Sources */,
+				1BD63A1624CF950E00FAB9A6 /* Frameworks */,
+				1BD63A1724CF950E00FAB9A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1BD63A1B24CF950E00FAB9A6 /* PBXTargetDependency */,
+			);
+			name = "Dream JournalUITests";
+			productName = "Dream JournalUITests";
+			productReference = 1BD63A1924CF950E00FAB9A6 /* Dream JournalUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1BD639F024CF950D00FAB9A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = Helal;
+				TargetAttributes = {
+					1BD639F724CF950E00FAB9A6 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					1BD63A0D24CF950E00FAB9A6 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = 1BD639F724CF950E00FAB9A6;
+					};
+					1BD63A1824CF950E00FAB9A6 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = 1BD639F724CF950E00FAB9A6;
+					};
+				};
+			};
+			buildConfigurationList = 1BD639F324CF950D00FAB9A6 /* Build configuration list for PBXProject "Dream Journal" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1BD639EF24CF950D00FAB9A6;
+			productRefGroup = 1BD639F924CF950E00FAB9A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1BD639F724CF950E00FAB9A6 /* Dream Journal */,
+				1BD63A0D24CF950E00FAB9A6 /* Dream JournalTests */,
+				1BD63A1824CF950E00FAB9A6 /* Dream JournalUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1BD639F624CF950E00FAB9A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD63A0824CF950E00FAB9A6 /* LaunchScreen.storyboard in Resources */,
+				1BD63A0524CF950E00FAB9A6 /* Preview Assets.xcassets in Resources */,
+				1BD63A0224CF950E00FAB9A6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BD63A0C24CF950E00FAB9A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BD63A1724CF950E00FAB9A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1BD639F424CF950E00FAB9A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD639FC24CF950E00FAB9A6 /* AppDelegate.swift in Sources */,
+				1BD639FE24CF950E00FAB9A6 /* SceneDelegate.swift in Sources */,
+				1BD63A0024CF950E00FAB9A6 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BD63A0A24CF950E00FAB9A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD63A1324CF950E00FAB9A6 /* Dream_JournalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BD63A1524CF950E00FAB9A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD63A1E24CF950E00FAB9A6 /* Dream_JournalUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1BD63A1024CF950E00FAB9A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BD639F724CF950E00FAB9A6 /* Dream Journal */;
+			targetProxy = 1BD63A0F24CF950E00FAB9A6 /* PBXContainerItemProxy */;
+		};
+		1BD63A1B24CF950E00FAB9A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BD639F724CF950E00FAB9A6 /* Dream Journal */;
+			targetProxy = 1BD63A1A24CF950E00FAB9A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1BD63A0624CF950E00FAB9A6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BD63A0724CF950E00FAB9A6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1BD63A2024CF950E00FAB9A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1BD63A2124CF950E00FAB9A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1BD63A2324CF950E00FAB9A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Dream Journal/Preview Content\"";
+				DEVELOPMENT_TEAM = FQX45R5BVV;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Dream Journal/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Dream-Journal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1BD63A2424CF950E00FAB9A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Dream Journal/Preview Content\"";
+				DEVELOPMENT_TEAM = FQX45R5BVV;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Dream Journal/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Dream-Journal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1BD63A2624CF950E00FAB9A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQX45R5BVV;
+				INFOPLIST_FILE = "Dream JournalTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Dream-JournalTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dream Journal.app/Dream Journal";
+			};
+			name = Debug;
+		};
+		1BD63A2724CF950E00FAB9A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQX45R5BVV;
+				INFOPLIST_FILE = "Dream JournalTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Dream-JournalTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dream Journal.app/Dream Journal";
+			};
+			name = Release;
+		};
+		1BD63A2924CF950E00FAB9A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQX45R5BVV;
+				INFOPLIST_FILE = "Dream JournalUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Dream-JournalUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Dream Journal";
+			};
+			name = Debug;
+		};
+		1BD63A2A24CF950E00FAB9A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQX45R5BVV;
+				INFOPLIST_FILE = "Dream JournalUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Dream-JournalUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Dream Journal";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1BD639F324CF950D00FAB9A6 /* Build configuration list for PBXProject "Dream Journal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BD63A2024CF950E00FAB9A6 /* Debug */,
+				1BD63A2124CF950E00FAB9A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BD63A2224CF950E00FAB9A6 /* Build configuration list for PBXNativeTarget "Dream Journal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BD63A2324CF950E00FAB9A6 /* Debug */,
+				1BD63A2424CF950E00FAB9A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BD63A2524CF950E00FAB9A6 /* Build configuration list for PBXNativeTarget "Dream JournalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BD63A2624CF950E00FAB9A6 /* Debug */,
+				1BD63A2724CF950E00FAB9A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BD63A2824CF950E00FAB9A6 /* Build configuration list for PBXNativeTarget "Dream JournalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BD63A2924CF950E00FAB9A6 /* Debug */,
+				1BD63A2A24CF950E00FAB9A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1BD639F024CF950D00FAB9A6 /* Project object */;
+}
