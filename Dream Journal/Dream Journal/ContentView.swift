@@ -10,11 +10,11 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
-    @ObservedObject var Journals = getData()
+    @ObservedObject var data = getData()
     var body: some View {
         ZStack {
             WaveAnimation()
-            JournalList()
+            JournalList(data: self.$data.datas)
         }
 //        .background(Color.black)
         .edgesIgnoringSafeArea(.vertical)
@@ -24,6 +24,7 @@ struct ContentView: View {
 struct JournalList: View {
     @State var show = false
     @State var txt = ""
+    @Binding var data: [Journal]
 
     var body: some View {
         VStack(spacing: 0) {
@@ -75,9 +76,83 @@ struct JournalList: View {
             .padding(.horizontal)
             .padding(.bottom, 20)
             
-            Spacer()
+            ScrollView(.vertical, showsIndicators: false) {
+                if self.txt != "" {
+                    VStack(spacing: 15) {
+                        if self.data.filter({$0.title.lowercased().contains(self.txt.lowercased())}).count == 0 {
+                            Text("No Results Found")
+                                .padding(.top, 10)
+                        }
+                        else {
+                            ForEach(self.data.filter({$0.title.lowercased().contains(self.txt.lowercased())})) {entry in
+                                cellView(journal: entry)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 15)
+                    .padding(.top, 10)
+                    
+                }
+                else {
+                    VStack (spacing: 15) {
+                        ForEach(self.data) {entry in
+                            cellView(journal: entry)
+                        }
+                    }
+                    .padding(.horizontal, 15)
+                    .padding(.top, 10)
+                }
+            }
             
         }
+    }
+}
+
+struct cellView: View {
+    var journal: Journal
+
+    var body: some View {
+        ZStack {
+            Rectangle().fill(Color.white)
+                .cornerRadius(10)
+                .shadow(color: .gray, radius: 3, x: 1, y: 1)
+                .opacity(0.7)
+            VStack {
+                HStack {
+                    VStack (alignment: .leading) {
+                        Text(journal.title).bold()
+                            .padding(.top, 8.0)
+                        Text(journal.date)
+                            .font(.caption).padding(.bottom, 10.0)
+                        Text(journal.description)
+                            .font(.system(size: 14))
+                            .foregroundColor(.gray)
+                            .padding(.bottom, 10.0)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding(.leading, 15.0)
+                    Spacer()
+                }
+//                HStack {
+//                    Spacer()
+//                    NavigationLink(destination: ViewDetails(deeplink: deeplink)) {
+//                        Text("View Details")
+//                            .foregroundColor(.blue)
+//                            .font(.system(size: 15))
+//                            .bold()
+//                    }
+//                    .padding(.trailing, 10)
+//                    NavigationLink(destination: ViewDetails(deeplink: deeplink)) {
+//                        Text("Edit")
+//                            .foregroundColor(.blue)
+//                            .font(.system(size: 15))
+//                            .bold()
+//                    }
+//                }
+//                .padding(.bottom, 8)
+//                .padding(.trailing, 15)
+            }
+        }.padding(.top, 1.0)
     }
 }
 
@@ -94,31 +169,27 @@ class getData: ObservableObject {
     init() {
         let db = Firestore.firestore()
         print("yaaass")
-        db.collection("user").getDocuments { (snap, err) in
+        db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").getDocuments { (snap, err) in
             if err != nil {
                 return
             }
             let entries = snap?.documents ?? []
             for journal in entries {
-                print(journal.get("email"))
-//                let id = deeplink.documentID
-//                guard let name = deeplink.get("name") as? String else {
-//                    return
-//                }
-//                guard let url = deeplink.get("url") as? String else {
-//                    return
-//                }
-//                guard let description = deeplink.get("description") as? String else {
-//                    return
-//                }
-//                self.datas.append(Deeplink(id: id, name: name, url: url, description: description))
+                let id = journal.documentID
+                let title = journal.get("title") as! String
+                let description = journal.get("description") as! String
+                let date = journal.get("date") as! String
+                self.datas.append(Journal(id: id, title: title, description: description, date: date))
             }
         }
     }
 }
 
-struct Journal {
+struct Journal: Identifiable {
+    var id: String
     var title: String
+    var description: String
+    var date: String
 }
 
 enum Constants: String {
