@@ -177,10 +177,9 @@ static NSString *const ktargetToInFlightPackagesKey =
   GDTCORUploadCoordinator *sharedCoordinator = [GDTCORUploadCoordinator sharedInstance];
   dispatch_sync(sharedCoordinator->_coordinationQueue, ^{
     @try {
-      NSSet *classes =
-          [NSSet setWithObjects:[NSMutableDictionary class], [GDTCORUploadPackage class], nil];
       sharedCoordinator->_targetToInFlightPackages =
-          [aDecoder decodeObjectOfClasses:classes forKey:ktargetToInFlightPackagesKey];
+          [aDecoder decodeObjectOfClass:[NSMutableDictionary class]
+                                 forKey:ktargetToInFlightPackagesKey];
 
     } @catch (NSException *exception) {
       sharedCoordinator->_targetToInFlightPackages = [NSMutableDictionary dictionary];
@@ -241,7 +240,7 @@ static NSString *const ktargetToInFlightPackagesKey =
         [prioritizer packageDelivered:package successful:successful];
       }
     }
-    if (successful && package.events) {
+    if (package.events != nil) {
       [self.storage removeEvents:package.events];
     }
   });

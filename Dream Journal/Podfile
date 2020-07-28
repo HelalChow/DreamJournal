@@ -9,6 +9,8 @@ target 'Dream Journal' do
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'
+	pod 'GoogleDataTransport', '5.0.0'
+
 
   target 'Dream JournalTests' do
     inherit! :search_paths
