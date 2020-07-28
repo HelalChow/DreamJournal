@@ -10,21 +10,24 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
-    @ObservedObject var data = getData()
     var body: some View {
-        ZStack {
-            WaveAnimation()
-            JournalList(data: self.$data.datas)
+        NavigationView {
+            ZStack {
+                WaveAnimation()
+                JournalList()
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+            }
+    //        .background(Color.black)
+            .edgesIgnoringSafeArea(.vertical)
         }
-//        .background(Color.black)
-        .edgesIgnoringSafeArea(.vertical)
     }
 }
 
 struct JournalList: View {
     @State var show = false
     @State var txt = ""
-    @Binding var data: [Journal]
+    @ObservedObject var data = getData()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -76,34 +79,47 @@ struct JournalList: View {
             .padding(.horizontal)
             .padding(.bottom, 20)
             
-            ScrollView(.vertical, showsIndicators: false) {
-                if self.txt != "" {
-                    VStack(spacing: 15) {
-                        if self.data.filter({$0.title.lowercased().contains(self.txt.lowercased())}).count == 0 {
-                            Text("No Results Found")
-                                .padding(.top, 10)
+            if self.data.datas.isEmpty {
+                if self.data.noData {
+                    Spacer()
+                    Text("There are no journals")
+                    Spacer()
+                }
+                else {
+                    Spacer()
+                    Indicator()
+                    Spacer()
+                }
+            }
+            else {
+                ScrollView(.vertical, showsIndicators: false) {
+                    if self.txt != "" {
+                        VStack(spacing: 15) {
+                            if self.data.datas.filter({$0.title.lowercased().contains(self.txt.lowercased())}).count == 0 {
+                                Text("No Results Found")
+                                    .padding(.top, 10)
+                            }
+                            else {
+                                ForEach(self.data.datas.filter({$0.title.lowercased().contains(self.txt.lowercased())})) {entry in
+                                    cellView(journal: entry)
+                                }
+                            }
                         }
-                        else {
-                            ForEach(self.data.filter({$0.title.lowercased().contains(self.txt.lowercased())})) {entry in
+                        .padding(.horizontal, 15)
+                        .padding(.top, 10)
+                        
+                    }
+                    else {
+                        VStack (spacing: 15) {
+                            ForEach(self.data.datas) {entry in
                                 cellView(journal: entry)
                             }
                         }
+                        .padding(.horizontal, 15)
+                        .padding(.top, 10)
                     }
-                    .padding(.horizontal, 15)
-                    .padding(.top, 10)
-                    
-                }
-                else {
-                    VStack (spacing: 15) {
-                        ForEach(self.data) {entry in
-                            cellView(journal: entry)
-                        }
-                    }
-                    .padding(.horizontal, 15)
-                    .padding(.top, 10)
                 }
             }
-            
         }
     }
 }
@@ -116,7 +132,7 @@ struct cellView: View {
             Rectangle().fill(Color.white)
                 .cornerRadius(10)
                 .shadow(color: .gray, radius: 3, x: 1, y: 1)
-                .opacity(0.7)
+                .opacity(0.8)
             VStack {
                 HStack {
                     VStack (alignment: .leading) {
@@ -127,6 +143,7 @@ struct cellView: View {
                         Text(journal.description)
                             .font(.system(size: 14))
                             .foregroundColor(.gray)
+                            .lineLimit(2)
                             .padding(.bottom, 10.0)
                             .fixedSize(horizontal: false, vertical: true)
                     }
@@ -164,22 +181,41 @@ struct ContentView_Previews: PreviewProvider {
 
 class getData: ObservableObject {
     @Published var datas = [Journal]()
+    @Published var noData = false
+    
     let currEmail = "h3lal99@gmail.com"
 
     init() {
         let db = Firestore.firestore()
-        print("yaaass")
         db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").getDocuments { (snap, err) in
             if err != nil {
+                self.noData = true
                 return
             }
-            let entries = snap?.documents ?? []
-            for journal in entries {
-                let id = journal.documentID
-                let title = journal.get("title") as! String
-                let description = journal.get("description") as! String
-                let date = journal.get("date") as! String
-                self.datas.append(Journal(id: id, title: title, description: description, date: date))
+            if snap!.documentChanges.isEmpty {
+                self.noData = true
+                return
+            }
+            for journal in snap!.documentChanges {
+                if journal.type == .added {
+                    let id = journal.document.documentID
+                    let title = journal.document.get("title") as! String
+                    let description = journal.document.get("description") as! String
+                    let date = journal.document.get("date") as! Timestamp
+                    
+                    let format = DateFormatter()
+                    format.dateFormat = "dd/MM/yyyy hh:mm a"
+                    let dateString = format.string(from: date.dateValue())
+                    
+                    self.datas.append(Journal(id: id, title: title, description: description, date: dateString))
+                }
+                if journal.type == .modified {
+                    //when modified
+                }
+                if journal.type == .removed {
+                    //when removed
+                }
+                
             }
         }
     }
@@ -200,4 +236,14 @@ enum Constants: String {
     case history = "folder.fill"
 }
 
-
+struct Indicator: UIViewRepresentable {
+    func makeUIView(context: UIViewRepresentableContext<Indicator>) -> UIActivityIndicatorView {
+        let view = UIActivityIndicatorView(style: .large)
+        view.startAnimating()
+        return view
+    }
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<Indicator>) {
+    }
+    
+    
+}
