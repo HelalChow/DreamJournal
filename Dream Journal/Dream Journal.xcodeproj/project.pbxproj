@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B43E28B24CFE4C9000B18B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B43E28A24CFE4C9000B18B9 /* GoogleService-Info.plist */; };
 		1B43E28D24D08116000B18B9 /* ViewDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43E28C24D08116000B18B9 /* ViewDetails.swift */; };
+		1B43E28F24D08A20000B18B9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43E28E24D08A20000B18B9 /* Home.swift */; };
 		1BD639FC24CF950E00FAB9A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD639FB24CF950E00FAB9A6 /* AppDelegate.swift */; };
 		1BD639FE24CF950E00FAB9A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD639FD24CF950E00FAB9A6 /* SceneDelegate.swift */; };
 		1BD63A0024CF950E00FAB9A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD639FF24CF950E00FAB9A6 /* ContentView.swift */; };
@@ -45,6 +46,7 @@
 		055589A942A8B24E5A6CE5EE /* Pods_Dream_JournalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dream_JournalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B43E28A24CFE4C9000B18B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B43E28C24D08116000B18B9 /* ViewDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetails.swift; sourceTree = "<group>"; };
+		1B43E28E24D08A20000B18B9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		1BD639F824CF950E00FAB9A6 /* Dream Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD639FB24CF950E00FAB9A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BD639FD24CF950E00FAB9A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				1BD639FD24CF950E00FAB9A6 /* SceneDelegate.swift */,
 				1BD639FF24CF950E00FAB9A6 /* ContentView.swift */,
 				1BD63A2B24CFA0E700FAB9A6 /* Animation.swift */,
+				1B43E28E24D08A20000B18B9 /* Home.swift */,
 				1BD63A0124CF950E00FAB9A6 /* Assets.xcassets */,
 				1BD63A0624CF950E00FAB9A6 /* LaunchScreen.storyboard */,
 				1BD63A0924CF950E00FAB9A6 /* Info.plist */,
@@ -429,6 +432,7 @@
 				1BD639FE24CF950E00FAB9A6 /* SceneDelegate.swift in Sources */,
 				1BD63A2C24CFA0E700FAB9A6 /* Animation.swift in Sources */,
 				1B43E28D24D08116000B18B9 /* ViewDetails.swift in Sources */,
+				1B43E28F24D08A20000B18B9 /* Home.swift in Sources */,
 				1BD63A0024CF950E00FAB9A6 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
