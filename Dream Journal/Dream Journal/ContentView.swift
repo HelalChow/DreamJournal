@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Firebase
+//import Firebase
 
 struct ContentView: View {
     var body: some View {
@@ -92,6 +92,7 @@ struct ContentView_Previews: PreviewProvider {
 //    init() {
 //        let db = Firestore.firestore()
 //        db.collection("user").getDocuments { (snap, err) in
+//            print("cdece")
 //            if err != nil {
 //                return
 //            }

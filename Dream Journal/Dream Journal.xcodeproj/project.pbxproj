@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,6 @@
 		1BD63A1324CF950E00FAB9A6 /* Dream_JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD63A1224CF950E00FAB9A6 /* Dream_JournalTests.swift */; };
 		1BD63A1E24CF950E00FAB9A6 /* Dream_JournalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD63A1D24CF950E00FAB9A6 /* Dream_JournalUITests.swift */; };
 		1BD63A2C24CFA0E700FAB9A6 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD63A2B24CFA0E700FAB9A6 /* Animation.swift */; };
-		1BD63A2E24CFC8C000FAB9A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BD63A2D24CFC8C000FAB9A6 /* GoogleService-Info.plist */; };
 		3D57D7B33B71649F1FF7358B /* Pods_Dream_JournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055589A942A8B24E5A6CE5EE /* Pods_Dream_JournalTests.framework */; };
 		9910573E65073EE987C43440 /* Pods_Dream_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DD2CF8D3E1F7937F18A53D /* Pods_Dream_Journal.framework */; };
 		D2794572484D4E9C3FFD6BA7 /* Pods_Dream_Journal_Dream_JournalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48EE2BD4EA5CE51DEC119AEB /* Pods_Dream_Journal_Dream_JournalUITests.framework */; };
@@ -57,7 +56,6 @@
 		1BD63A1D24CF950E00FAB9A6 /* Dream_JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream_JournalUITests.swift; sourceTree = "<group>"; };
 		1BD63A1F24CF950E00FAB9A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BD63A2B24CFA0E700FAB9A6 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
-		1BD63A2D24CFC8C000FAB9A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		48EE2BD4EA5CE51DEC119AEB /* Pods_Dream_Journal_Dream_JournalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dream_Journal_Dream_JournalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6046EB0A60F6F04E9014762B /* Pods-Dream Journal-Dream JournalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Journal-Dream JournalUITests.debug.xcconfig"; path = "Target Support Files/Pods-Dream Journal-Dream JournalUITests/Pods-Dream Journal-Dream JournalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		69B0BDB4E65AAB3C272FFE86 /* Pods-Dream JournalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream JournalTests.release.xcconfig"; path = "Target Support Files/Pods-Dream JournalTests/Pods-Dream JournalTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 		1BD639FA24CF950E00FAB9A6 /* Dream Journal */ = {
 			isa = PBXGroup;
 			children = (
-				1BD63A2D24CFC8C000FAB9A6 /* GoogleService-Info.plist */,
 				1BD639FB24CF950E00FAB9A6 /* AppDelegate.swift */,
 				1BD639FD24CF950E00FAB9A6 /* SceneDelegate.swift */,
 				1BD639FF24CF950E00FAB9A6 /* ContentView.swift */,
@@ -169,7 +166,6 @@
 				C97BED6EC9587A51DB5DAF46 /* Pods-Dream JournalTests.debug.xcconfig */,
 				69B0BDB4E65AAB3C272FFE86 /* Pods-Dream JournalTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -293,7 +289,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BD63A0824CF950E00FAB9A6 /* LaunchScreen.storyboard in Resources */,
-				1BD63A2E24CFC8C000FAB9A6 /* GoogleService-Info.plist in Resources */,
 				1BD63A0524CF950E00FAB9A6 /* Preview Assets.xcassets in Resources */,
 				1BD63A0224CF950E00FAB9A6 /* Assets.xcassets in Resources */,
 			);
