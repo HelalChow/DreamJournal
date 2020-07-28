@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 struct JournalList: View {
     @State var show = false
@@ -119,7 +120,8 @@ struct JournalList: View {
                                         }
                                         if self.remove {
                                             Button(action: {
-                                                
+                                                let db = Firestore.firestore()
+                                                db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document(entry.id).delete()
                                             }) {
                                                 Image(systemName: "minus.circle.fill")
                                                     .resizable()
@@ -154,12 +156,13 @@ struct JournalList: View {
         .sheet(isPresented: self.$show2) {
             EditView(txt: self.$txt2, docID: self.$docID, show: self.$show2)
         }
-        .animation(.default)
+//        .animation(.default)
     }
 }
 
 struct cellView: View {
     var journal: Journal
+    var remove: Bool
 
     var body: some View {
         NavigationLink(destination: ViewJournal(journal: journal)) {
