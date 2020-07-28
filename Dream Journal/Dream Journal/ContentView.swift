@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
     var body: some View {
@@ -83,6 +84,38 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+//class getData: ObservableObject {
+//    @Published var datas = [Journal]()
+//
+//    init() {
+//        let db = Firestore.firestore()
+//        db.collection("user").getDocuments { (snap, err) in
+//            if err != nil {
+//                return
+//            }
+//            let entries = snap?.documents ?? []
+//            for deeplink in entries {
+//                print(deeplink)
+//                let id = deeplink.documentID
+//                guard let name = deeplink.get("name") as? String else {
+//                    return
+//                }
+//                guard let url = deeplink.get("url") as? String else {
+//                    return
+//                }
+//                guard let description = deeplink.get("description") as? String else {
+//                    return
+//                }
+//                self.datas.append(Deeplink(id: id, name: name, url: url, description: description))
+//            }
+//        }
+//    }
+//}
+
+struct Journal {
+    var title: String
 }
 
 enum Constants: String {

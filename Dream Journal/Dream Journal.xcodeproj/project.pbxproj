@@ -17,6 +17,9 @@
 		1BD63A1E24CF950E00FAB9A6 /* Dream_JournalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD63A1D24CF950E00FAB9A6 /* Dream_JournalUITests.swift */; };
 		1BD63A2C24CFA0E700FAB9A6 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD63A2B24CFA0E700FAB9A6 /* Animation.swift */; };
 		1BD63A2E24CFC8C000FAB9A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BD63A2D24CFC8C000FAB9A6 /* GoogleService-Info.plist */; };
+		3D57D7B33B71649F1FF7358B /* Pods_Dream_JournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055589A942A8B24E5A6CE5EE /* Pods_Dream_JournalTests.framework */; };
+		9910573E65073EE987C43440 /* Pods_Dream_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DD2CF8D3E1F7937F18A53D /* Pods_Dream_Journal.framework */; };
+		D2794572484D4E9C3FFD6BA7 /* Pods_Dream_Journal_Dream_JournalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48EE2BD4EA5CE51DEC119AEB /* Pods_Dream_Journal_Dream_JournalUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03606AA8E61C83B107130C44 /* Pods-Dream Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Journal.release.xcconfig"; path = "Target Support Files/Pods-Dream Journal/Pods-Dream Journal.release.xcconfig"; sourceTree = "<group>"; };
+		055589A942A8B24E5A6CE5EE /* Pods_Dream_JournalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dream_JournalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD639F824CF950E00FAB9A6 /* Dream Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD639FB24CF950E00FAB9A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BD639FD24CF950E00FAB9A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +58,13 @@
 		1BD63A1F24CF950E00FAB9A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BD63A2B24CFA0E700FAB9A6 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		1BD63A2D24CFC8C000FAB9A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		48EE2BD4EA5CE51DEC119AEB /* Pods_Dream_Journal_Dream_JournalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dream_Journal_Dream_JournalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6046EB0A60F6F04E9014762B /* Pods-Dream Journal-Dream JournalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Journal-Dream JournalUITests.debug.xcconfig"; path = "Target Support Files/Pods-Dream Journal-Dream JournalUITests/Pods-Dream Journal-Dream JournalUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		69B0BDB4E65AAB3C272FFE86 /* Pods-Dream JournalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream JournalTests.release.xcconfig"; path = "Target Support Files/Pods-Dream JournalTests/Pods-Dream JournalTests.release.xcconfig"; sourceTree = "<group>"; };
+		77DD2CF8D3E1F7937F18A53D /* Pods_Dream_Journal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dream_Journal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7875902BE71030A35769398F /* Pods-Dream Journal-Dream JournalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Journal-Dream JournalUITests.release.xcconfig"; path = "Target Support Files/Pods-Dream Journal-Dream JournalUITests/Pods-Dream Journal-Dream JournalUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C97BED6EC9587A51DB5DAF46 /* Pods-Dream JournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream JournalTests.debug.xcconfig"; path = "Target Support Files/Pods-Dream JournalTests/Pods-Dream JournalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D329C0D6A71D7F2716568420 /* Pods-Dream Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dream Journal.debug.xcconfig"; path = "Target Support Files/Pods-Dream Journal/Pods-Dream Journal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9910573E65073EE987C43440 /* Pods_Dream_Journal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D57D7B33B71649F1FF7358B /* Pods_Dream_JournalTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2794572484D4E9C3FFD6BA7 /* Pods_Dream_Journal_Dream_JournalUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +102,8 @@
 				1BD63A1124CF950E00FAB9A6 /* Dream JournalTests */,
 				1BD63A1C24CF950E00FAB9A6 /* Dream JournalUITests */,
 				1BD639F924CF950E00FAB9A6 /* Products */,
+				CA798672E4FDFC67382E3EB8 /* Pods */,
+				D71B33CD2AE9DDD5F5828D08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +159,30 @@
 			path = "Dream JournalUITests";
 			sourceTree = "<group>";
 		};
+		CA798672E4FDFC67382E3EB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D329C0D6A71D7F2716568420 /* Pods-Dream Journal.debug.xcconfig */,
+				03606AA8E61C83B107130C44 /* Pods-Dream Journal.release.xcconfig */,
+				6046EB0A60F6F04E9014762B /* Pods-Dream Journal-Dream JournalUITests.debug.xcconfig */,
+				7875902BE71030A35769398F /* Pods-Dream Journal-Dream JournalUITests.release.xcconfig */,
+				C97BED6EC9587A51DB5DAF46 /* Pods-Dream JournalTests.debug.xcconfig */,
+				69B0BDB4E65AAB3C272FFE86 /* Pods-Dream JournalTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D71B33CD2AE9DDD5F5828D08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77DD2CF8D3E1F7937F18A53D /* Pods_Dream_Journal.framework */,
+				48EE2BD4EA5CE51DEC119AEB /* Pods_Dream_Journal_Dream_JournalUITests.framework */,
+				055589A942A8B24E5A6CE5EE /* Pods_Dream_JournalTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,9 +190,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BD63A2224CF950E00FAB9A6 /* Build configuration list for PBXNativeTarget "Dream Journal" */;
 			buildPhases = (
+				6CD512B4941C35F6AD954AEA /* [CP] Check Pods Manifest.lock */,
 				1BD639F424CF950E00FAB9A6 /* Sources */,
 				1BD639F524CF950E00FAB9A6 /* Frameworks */,
 				1BD639F624CF950E00FAB9A6 /* Resources */,
+				8AFAC4269E2D4FED82C2C7D5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -166,6 +209,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BD63A2524CF950E00FAB9A6 /* Build configuration list for PBXNativeTarget "Dream JournalTests" */;
 			buildPhases = (
+				A0E4F2D5498D71F9BD16BF22 /* [CP] Check Pods Manifest.lock */,
 				1BD63A0A24CF950E00FAB9A6 /* Sources */,
 				1BD63A0B24CF950E00FAB9A6 /* Frameworks */,
 				1BD63A0C24CF950E00FAB9A6 /* Resources */,
@@ -184,9 +228,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BD63A2824CF950E00FAB9A6 /* Build configuration list for PBXNativeTarget "Dream JournalUITests" */;
 			buildPhases = (
+				A29DDE9C7EBAD76AAAAC1C64 /* [CP] Check Pods Manifest.lock */,
 				1BD63A1524CF950E00FAB9A6 /* Sources */,
 				1BD63A1624CF950E00FAB9A6 /* Frameworks */,
 				1BD63A1724CF950E00FAB9A6 /* Resources */,
+				46DAD27395947A0736E64FDC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -268,6 +314,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46DAD27395947A0736E64FDC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dream Journal-Dream JournalUITests/Pods-Dream Journal-Dream JournalUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dream Journal-Dream JournalUITests/Pods-Dream Journal-Dream JournalUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dream Journal-Dream JournalUITests/Pods-Dream Journal-Dream JournalUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CD512B4941C35F6AD954AEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dream Journal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AFAC4269E2D4FED82C2C7D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dream Journal/Pods-Dream Journal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dream Journal/Pods-Dream Journal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dream Journal/Pods-Dream Journal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0E4F2D5498D71F9BD16BF22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dream JournalTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A29DDE9C7EBAD76AAAAC1C64 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dream Journal-Dream JournalUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BD639F424CF950E00FAB9A6 /* Sources */ = {
@@ -440,6 +589,7 @@
 		};
 		1BD63A2324CF950E00FAB9A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D329C0D6A71D7F2716568420 /* Pods-Dream Journal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -461,6 +611,7 @@
 		};
 		1BD63A2424CF950E00FAB9A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03606AA8E61C83B107130C44 /* Pods-Dream Journal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -482,6 +633,7 @@
 		};
 		1BD63A2624CF950E00FAB9A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C97BED6EC9587A51DB5DAF46 /* Pods-Dream JournalTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,6 +656,7 @@
 		};
 		1BD63A2724CF950E00FAB9A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69B0BDB4E65AAB3C272FFE86 /* Pods-Dream JournalTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -526,6 +679,7 @@
 		};
 		1BD63A2924CF950E00FAB9A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6046EB0A60F6F04E9014762B /* Pods-Dream Journal-Dream JournalUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +700,7 @@
 		};
 		1BD63A2A24CF950E00FAB9A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7875902BE71030A35769398F /* Pods-Dream Journal-Dream JournalUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
