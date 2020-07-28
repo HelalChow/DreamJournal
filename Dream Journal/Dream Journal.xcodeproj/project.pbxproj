@@ -16,6 +16,7 @@
 		1BD63A1324CF950E00FAB9A6 /* Dream_JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD63A1224CF950E00FAB9A6 /* Dream_JournalTests.swift */; };
 		1BD63A1E24CF950E00FAB9A6 /* Dream_JournalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD63A1D24CF950E00FAB9A6 /* Dream_JournalUITests.swift */; };
 		1BD63A2C24CFA0E700FAB9A6 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD63A2B24CFA0E700FAB9A6 /* Animation.swift */; };
+		1BD63A2E24CFC8C000FAB9A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BD63A2D24CFC8C000FAB9A6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1BD63A1D24CF950E00FAB9A6 /* Dream_JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream_JournalUITests.swift; sourceTree = "<group>"; };
 		1BD63A1F24CF950E00FAB9A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BD63A2B24CFA0E700FAB9A6 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		1BD63A2D24CFC8C000FAB9A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		1BD639FA24CF950E00FAB9A6 /* Dream Journal */ = {
 			isa = PBXGroup;
 			children = (
+				1BD63A2D24CFC8C000FAB9A6 /* GoogleService-Info.plist */,
 				1BD639FB24CF950E00FAB9A6 /* AppDelegate.swift */,
 				1BD639FD24CF950E00FAB9A6 /* SceneDelegate.swift */,
 				1BD639FF24CF950E00FAB9A6 /* ContentView.swift */,
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BD63A0824CF950E00FAB9A6 /* LaunchScreen.storyboard in Resources */,
+				1BD63A2E24CFC8C000FAB9A6 /* GoogleService-Info.plist in Resources */,
 				1BD63A0524CF950E00FAB9A6 /* Preview Assets.xcassets in Resources */,
 				1BD63A0224CF950E00FAB9A6 /* Assets.xcassets in Resources */,
 			);
