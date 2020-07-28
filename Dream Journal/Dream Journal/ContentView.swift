@@ -63,9 +63,25 @@ class getData: ObservableObject {
                 }
                 if journal.type == .modified {
                     //when modified
+                    let id = journal.document.documentID
+                    let title = journal.document.get("title") as! String
+                    let description = journal.document.get("description") as! String
+                    for i in 0..<self.datas.count {
+                        if self.datas[i].id == id {
+                            self.datas[i].title = title
+                            self.datas[i].description = description
+                        }
+                    }
                 }
                 if journal.type == .removed {
                     //when removed
+                    let id = journal.document.documentID
+                    for i in 0..<self.datas.count {
+                        if self.datas[i].id == id {
+                            self.datas.remove(at: i)
+                            return
+                        }
+                    }
                 }
                 
             }
