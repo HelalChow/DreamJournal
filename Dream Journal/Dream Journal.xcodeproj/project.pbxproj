@@ -130,11 +130,11 @@
 				1BD639FF24CF950E00FAB9A6 /* ContentView.swift */,
 				1BD63A2B24CFA0E700FAB9A6 /* Animation.swift */,
 				1B43E28E24D08A20000B18B9 /* Home.swift */,
+				1B43E28C24D08116000B18B9 /* ViewDetails.swift */,
 				1BD63A0124CF950E00FAB9A6 /* Assets.xcassets */,
 				1BD63A0624CF950E00FAB9A6 /* LaunchScreen.storyboard */,
 				1BD63A0924CF950E00FAB9A6 /* Info.plist */,
 				1BD63A0324CF950E00FAB9A6 /* Preview Content */,
-				1B43E28C24D08116000B18B9 /* ViewDetails.swift */,
 			);
 			path = "Dream Journal";
 			sourceTree = "<group>";

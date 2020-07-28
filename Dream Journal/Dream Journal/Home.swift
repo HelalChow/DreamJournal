@@ -15,6 +15,7 @@ struct JournalList: View {
     @State var show2 = false
     @State var txt2 = ""
     @State var docID = ""
+    @State var remove = false
     @ObservedObject var data = getData()
 
     var body: some View {
@@ -58,6 +59,14 @@ struct JournalList: View {
                                     .foregroundColor(.white).padding(10)
                             }
                         }
+                        Button(action: {
+                            withAnimation {
+                                self.remove.toggle()
+                            }
+                        }) {
+                            Image(systemName: self.remove ? "xmark.circle" : "trash").resizable().frame(width: 23, height: 23).foregroundColor(.white)
+                        }
+                        .padding(.horizontal, 8)
                     }
                     .padding(self.show ? 10 : 0)
                     .background(Color.blue)
@@ -96,17 +105,28 @@ struct JournalList: View {
                             }
                             .padding(.horizontal, 15)
                             .padding(.top, 10)
-                            
                         }
                         else {
                             VStack (spacing: 15) {
                                 ForEach(self.data.datas) {entry in
-                                    Button(action: {
-                                        self.docID = entry.id
-                                        self.txt2 = entry.title
-                                        self.show2.toggle()
-                                    }) {
-                                        cellView(journal: entry)
+                                    HStack {
+                                        Button(action: {
+                                            self.docID = entry.id
+                                            self.txt2 = entry.title
+                                            self.show2.toggle()
+                                        }) {
+                                            cellView(journal: entry)
+                                        }
+                                        if self.remove {
+                                            Button(action: {
+                                                
+                                            }) {
+                                                Image(systemName: "minus.circle.fill")
+                                                    .resizable()
+                                                    .frame(width: 20, height: 20)
+                                                    .foregroundColor(.red)
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -116,7 +136,6 @@ struct JournalList: View {
                     }
                 }
             }
-            
             Button(action: {
                 self.txt2 = ""
                 self.docID = ""
@@ -135,6 +154,7 @@ struct JournalList: View {
         .sheet(isPresented: self.$show2) {
             EditView(txt: self.$txt2, docID: self.$docID, show: self.$show2)
         }
+        .animation(.default)
     }
 }
 
@@ -142,48 +162,33 @@ struct cellView: View {
     var journal: Journal
 
     var body: some View {
-        ZStack {
-            Rectangle().fill(Color.white)
-                .cornerRadius(10)
-                .shadow(color: .gray, radius: 3, x: 1, y: 1)
-                .opacity(0.8)
-            VStack {
-                HStack {
-                    VStack (alignment: .leading) {
-                        Text(journal.title).bold()
-                            .padding(.top, 8.0)
-                        Text(journal.date)
-                            .font(.caption).padding(.bottom, 10.0)
-                        Text(journal.description)
-                            .font(.system(size: 14))
-                            .foregroundColor(.gray)
-                            .lineLimit(2)
-                            .padding(.bottom, 10.0)
-                            .fixedSize(horizontal: false, vertical: true)
+        NavigationLink(destination: ViewJournal(journal: journal)) {
+            ZStack {
+                Rectangle().fill(Color.white)
+                    .cornerRadius(10)
+                    .shadow(color: .gray, radius: 3, x: 1, y: 1)
+                    .opacity(0.8)
+                VStack {
+                    HStack {
+                        VStack (alignment: .leading) {
+                            Text(journal.title).bold()
+                                .padding(.top, 8.0)
+                                .fixedSize(horizontal: false, vertical: true)
+                            Text(journal.date)
+                                .font(.caption).padding(.bottom, 10.0)
+                            Text(journal.description)
+                                .font(.system(size: 14))
+                                .foregroundColor(.gray)
+                                .lineLimit(2)
+                                .padding(.bottom, 10.0)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        .padding(.leading, 15.0)
+                        Spacer()
                     }
-                    .padding(.leading, 15.0)
-                    Spacer()
                 }
-//                HStack {
-//                    Spacer()
-//                    NavigationLink(destination: ViewDetails(deeplink: deeplink)) {
-//                        Text("View Details")
-//                            .foregroundColor(.blue)
-//                            .font(.system(size: 15))
-//                            .bold()
-//                    }
-//                    .padding(.trailing, 10)
-//                    NavigationLink(destination: ViewDetails(deeplink: deeplink)) {
-//                        Text("Edit")
-//                            .foregroundColor(.blue)
-//                            .font(.system(size: 15))
-//                            .bold()
-//                    }
-//                }
-//                .padding(.bottom, 8)
-//                .padding(.trailing, 15)
-            }
-        }.padding(.top, 1.0)
+            }.padding(.top, 1.0)
+        }
     }
 }
 
