@@ -39,7 +39,7 @@ class getData: ObservableObject {
 
     init() {
         let db = Firestore.firestore()
-        db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").getDocuments { (snap, err) in
+        db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").addSnapshotListener { (snap, err) in
             if err != nil {
                 self.noData = true
                 return
@@ -69,6 +69,15 @@ class getData: ObservableObject {
                 }
                 
             }
+        }
+    }
+}
+
+func SaveData(txt: String) {
+    let db = Firestore.firestore()
+    db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document().setData(["title": txt, "description": txt, "date": Date()]) { (err) in
+        if err != nil {
+            return
         }
     }
 }
@@ -109,6 +118,7 @@ struct EditView: View {
                 .background(Color.black.opacity(0.05))
             Button(action: {
                 self.show.toggle()
+                SaveData(txt: self.txt)
             }) {
                 Text("Save")
                     .padding(.vertical)
