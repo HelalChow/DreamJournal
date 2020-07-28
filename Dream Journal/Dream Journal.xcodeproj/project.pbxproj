@@ -443,6 +443,7 @@
 				DEVELOPMENT_TEAM = FQX45R5BVV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Dream Journal/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,6 +464,7 @@
 				DEVELOPMENT_TEAM = FQX45R5BVV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Dream Journal/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

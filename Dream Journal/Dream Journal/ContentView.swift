@@ -14,6 +14,8 @@ struct ContentView: View {
             WaveAnimation()
             JournalList()
         }
+//        .background(Color.black)
+        .edgesIgnoringSafeArea(.vertical)
     }
 }
 
@@ -28,14 +30,17 @@ struct JournalList: View {
                      Text("Dream Journal")
                         .fontWeight(.bold)
                         .font(.title)
-                        .foregroundColor(.white)
+                        .foregroundColor(.blue)
+                        .opacity(0.7)
                 }
                 Spacer(minLength: 0)
                 HStack {
                     if self.show {
                         Image(systemName: Constants.searchIcon.rawValue)
                             .padding(.horizontal, 8)
-                        TextField("Search Deeplinks", text: self.$txt)
+                            .foregroundColor(.white)
+                        TextField("Search Dreams", text: self.$txt)
+                            .foregroundColor(.white)
                         Button(action: {
                             withAnimation {
                                 self.txt = ""
@@ -43,7 +48,8 @@ struct JournalList: View {
                             }
                         }) {
                             Image(systemName: "xmark")
-                                .foregroundColor(.black)
+                                .foregroundColor(.white
+                            )
                         }
                         .padding(.horizontal, 8)
                     }
@@ -54,23 +60,22 @@ struct JournalList: View {
                             }
                         }) {
                             Image(systemName: Constants.searchIcon.rawValue)
-                                .foregroundColor(.black).padding(10)
+                                .foregroundColor(.white).padding(10)
                         }
                     }
                 }
                 .padding(self.show ? 10 : 0)
-                .background(Color.white)
+                .background(Color.blue)
+                .opacity(0.7)
                 .cornerRadius(20)
             }
             .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 15)
             .padding(.horizontal)
             .padding(.bottom, 20)
-            .background(Color.blue)
             
             Spacer()
             
         }
-        .edgesIgnoringSafeArea(.top)
     }
 }
 
