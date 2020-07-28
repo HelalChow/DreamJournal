@@ -79,6 +79,9 @@ class getData: ObservableObject {
                     for i in 0..<self.datas.count {
                         if self.datas[i].id == id {
                             self.datas.remove(at: i)
+                            if self.datas.isEmpty {
+                                self.noData = true
+                            }
                             return
                         }
                     }
@@ -88,8 +91,6 @@ class getData: ObservableObject {
         }
     }
 }
-
-
 
 struct Journal: Identifiable {
     var id: String

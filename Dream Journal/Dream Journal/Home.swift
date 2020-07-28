@@ -100,7 +100,26 @@ struct JournalList: View {
                                 }
                                 else {
                                     ForEach(self.data.datas.filter({$0.title.lowercased().contains(self.txt.lowercased())})) {entry in
-                                        cellView(journal: entry)
+                                        HStack {
+                                            Button(action: {
+                                                self.docID = entry.id
+                                                self.txt2 = entry.title
+                                                self.show2.toggle()
+                                            }) {
+                                                cellView(journal: entry)
+                                            }
+                                            if self.remove {
+                                                Button(action: {
+                                                    let db = Firestore.firestore()
+                                                    db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document(entry.id).delete()
+                                                }) {
+                                                    Image(systemName: "minus.circle.fill")
+                                                        .resizable()
+                                                        .frame(width: 20, height: 20)
+                                                        .foregroundColor(.red)
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -162,7 +181,6 @@ struct JournalList: View {
 
 struct cellView: View {
     var journal: Journal
-    var remove: Bool
 
     var body: some View {
         NavigationLink(destination: ViewJournal(journal: journal)) {
