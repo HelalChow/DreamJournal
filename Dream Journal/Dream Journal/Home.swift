@@ -101,13 +101,7 @@ struct JournalList: View {
                                 else {
                                     ForEach(self.data.datas.filter({$0.title.lowercased().contains(self.txt.lowercased())})) {entry in
                                         HStack {
-                                            Button(action: {
-                                                self.docID = entry.id
-                                                self.txt2 = entry.title
-                                                self.show2.toggle()
-                                            }) {
-                                                cellView(journal: entry)
-                                            }
+                                            cellView(journal: entry)
                                             if self.remove {
                                                 Button(action: {
                                                     let db = Firestore.firestore()
@@ -130,13 +124,7 @@ struct JournalList: View {
                             VStack (spacing: 15) {
                                 ForEach(self.data.datas) {entry in
                                     HStack {
-                                        Button(action: {
-                                            self.docID = entry.id
-                                            self.txt2 = entry.title
-                                            self.show2.toggle()
-                                        }) {
-                                            cellView(journal: entry)
-                                        }
+                                        cellView(journal: entry)
                                         if self.remove {
                                             Button(action: {
                                                 let db = Firestore.firestore()
@@ -175,7 +163,6 @@ struct JournalList: View {
         .sheet(isPresented: self.$show2) {
             EditView(txt: self.$txt2, docID: self.$docID, show: self.$show2)
         }
-//        .animation(.default)
     }
 }
 

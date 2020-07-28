@@ -11,19 +11,24 @@ import SwiftUI
 
 struct ViewJournal: View {
     var journal: Journal
+    @State var show2 = false
+    @State var txt2 = ""
+    @State var docID = ""
+    
     var body: some View {
-
         ZStack {
             WaveAnimation()
             VStack {
                 HStack {
                     VStack {
-                        HStack(alignment: .top) {
+                        HStack {
                             Spacer()
                             HStack {
                                 Button(action: {
-                                    withAnimation {
-                                    }
+                                    self.docID = self.journal.id
+                                    self.txt2 = self.journal.title
+                                    self.show2.toggle()
+                                    print("pressed")
                                 }) {
                                     HStack {
                                         Text("Edit")
@@ -72,7 +77,11 @@ struct ViewJournal: View {
                     .padding(.horizontal)
                     Spacer()
                 }
-            }.edgesIgnoringSafeArea(.top)
+            }
+            .edgesIgnoringSafeArea(.top)
+        }
+        .sheet(isPresented: self.$show2) {
+            EditView(txt: self.$txt2, docID: self.$docID, show: self.$show2)
         }
     }
 }
