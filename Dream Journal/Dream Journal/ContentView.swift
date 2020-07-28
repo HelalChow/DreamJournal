@@ -7,9 +7,10 @@
 //
 
 import SwiftUI
-//import Firebase
+import Firebase
 
 struct ContentView: View {
+    @ObservedObject var Journals = getData()
     var body: some View {
         ZStack {
             WaveAnimation()
@@ -86,19 +87,20 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-//class getData: ObservableObject {
-//    @Published var datas = [Journal]()
-//
-//    init() {
-//        let db = Firestore.firestore()
-//        db.collection("user").getDocuments { (snap, err) in
-//            print("cdece")
-//            if err != nil {
-//                return
-//            }
-//            let entries = snap?.documents ?? []
-//            for deeplink in entries {
-//                print(deeplink)
+class getData: ObservableObject {
+    @Published var datas = [Journal]()
+    let currEmail = "h3lal99@gmail.com"
+
+    init() {
+        let db = Firestore.firestore()
+        print("yaaass")
+        db.collection("user").getDocuments { (snap, err) in
+            if err != nil {
+                return
+            }
+            let entries = snap?.documents ?? []
+            for journal in entries {
+                print(journal.get("email"))
 //                let id = deeplink.documentID
 //                guard let name = deeplink.get("name") as? String else {
 //                    return
@@ -110,10 +112,10 @@ struct ContentView_Previews: PreviewProvider {
 //                    return
 //                }
 //                self.datas.append(Deeplink(id: id, name: name, url: url, description: description))
-//            }
-//        }
-//    }
-//}
+            }
+        }
+    }
+}
 
 struct Journal {
     var title: String
