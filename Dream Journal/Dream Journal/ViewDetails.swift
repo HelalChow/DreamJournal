@@ -17,19 +17,48 @@ struct ViewJournal: View {
             WaveAnimation()
             VStack {
                 HStack {
-                    VStack (alignment: .leading) {
-                        Text(journal.title)
-                            .fontWeight(.bold)
-                            .font(.system(size: 24))
-                            .foregroundColor(.blue).opacity(0.7)
-                        Text(journal.date)
-                            .fontWeight(.bold)
-                            .font(.system(size: 14))
+                    VStack {
+                        HStack(alignment: .top) {
+                            Spacer()
+                            HStack {
+                                Button(action: {
+                                    withAnimation {
+                                    }
+                                }) {
+                                    HStack {
+                                        Text("Edit")
+                                            .foregroundColor(.white)
+                                            .padding(.leading, 10)
+                                        Image(systemName: Constants.edit.rawValue)
+                                            .resizable()
+                                            .frame(width: 18, height: 18)
+                                            .foregroundColor(.white).padding(10)
+                                    }
+                                }
+                                .padding(.horizontal, 8)
+                                
+                            }
+                            .background(Color.blue)
+                            .opacity(0.7)
+                            .cornerRadius(20)
+                        }
+                        
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(journal.title)
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 24))
+                                    .foregroundColor(.blue).opacity(0.7)
+                                Text(journal.date)
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 14))
+                            }
+                            Spacer()
+                        }.padding(.top, 20)
                     }
-                    .padding(.top, 25)
                     Spacer()
                 }
-                .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 40)
+                .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 10)
                 .padding(.horizontal)
                 .padding(.bottom, 20)
                 

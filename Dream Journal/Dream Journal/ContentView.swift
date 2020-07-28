@@ -105,6 +105,7 @@ enum Constants: String {
     case registry = "book.fill"
     case favorites = "heart.fill"
     case history = "folder.fill"
+    case edit = "pencil"
 }
 
 struct Indicator: UIViewRepresentable {
