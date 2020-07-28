@@ -9,42 +9,68 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    let universalSize = UIScreen.main.bounds
-    
-    @State var isAnimated = false
     var body: some View {
-        
         ZStack {
-            getSinWave()
-                .foregroundColor(Color.init(red: 0.3, green: 0.6, blue: 1).opacity(0.4))
-                .offset(x: isAnimated ? -1 * universalSize.width : 0)
-                .animation(
-                    Animation.linear(duration: 2)
-                    .repeatForever(autoreverses: false)
-                )
-        }.onAppear() {
-            self.isAnimated = true
+            WaveAnimation()
+            JournalList()
         }
-        
     }
-    
-    func getSinWave(baseline: CGFloat = UIScreen.main.bounds.height/2) -> Path {
-        Path { path in
-            path.move(to: CGPoint(x: 0, y: baseline))
-            path.addCurve(
-                to: CGPoint(x: universalSize.width, y: baseline),
-                control1: CGPoint(x: universalSize.width * 0.25, y: 150 + baseline),
-                control2: CGPoint(x: universalSize.width * 0.75, y: -150 + baseline))
-            path.addCurve(
-                to: CGPoint(x: 2 * universalSize.width, y: baseline),
-                control1: CGPoint(x: universalSize.width * 1.25, y: 150 + baseline),
-                control2: CGPoint(x: universalSize.width * 1.75, y: -150 + baseline))
-            path.addLine(to: CGPoint(x: 2 * universalSize.width, y: universalSize.height))
-            path.addLine(to: CGPoint(x: 0, y: universalSize.height))
+}
+
+struct JournalList: View {
+    @State var show = false
+    @State var txt = ""
+
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                if !show {
+                     Text("Dream Journal")
+                        .fontWeight(.bold)
+                        .font(.title)
+                        .foregroundColor(.white)
+                }
+                Spacer(minLength: 0)
+                HStack {
+                    if self.show {
+                        Image(systemName: Constants.searchIcon.rawValue)
+                            .padding(.horizontal, 8)
+                        TextField("Search Deeplinks", text: self.$txt)
+                        Button(action: {
+                            withAnimation {
+                                self.txt = ""
+                                self.show.toggle()
+                            }
+                        }) {
+                            Image(systemName: "xmark")
+                                .foregroundColor(.black)
+                        }
+                        .padding(.horizontal, 8)
+                    }
+                    else {
+                        Button(action: {
+                            withAnimation {
+                                self.show.toggle()
+                            }
+                        }) {
+                            Image(systemName: Constants.searchIcon.rawValue)
+                                .foregroundColor(.black).padding(10)
+                        }
+                    }
+                }
+                .padding(self.show ? 10 : 0)
+                .background(Color.white)
+                .cornerRadius(20)
+            }
+            .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 15)
+            .padding(.horizontal)
+            .padding(.bottom, 20)
+            .background(Color.blue)
+            
+            Spacer()
+            
         }
-        
-    
+        .edgesIgnoringSafeArea(.top)
     }
 }
 
@@ -53,3 +79,13 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+enum Constants: String {
+    case searchIcon = "magnifyingglass"
+    case checkMark = "checkmark"
+    case registry = "book.fill"
+    case favorites = "heart.fill"
+    case history = "folder.fill"
+}
+
+
