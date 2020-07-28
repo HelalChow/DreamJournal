@@ -13,22 +13,37 @@ struct ViewJournal: View {
     var journal: Journal
     var body: some View {
 
-        VStack (alignment: .leading) {
-            VStack (alignment: .leading) {
-                Text(journal.title)
-                    .fontWeight(.bold)
-                    .font(.system(size: 24))
-                Text(journal.date)
-                    .font(.system(size: 14))
-            }
-            .padding(.top, 25)
-            .padding(.leading, 15)
-
-            Text(journal.description)
-                .foregroundColor(.gray)
-                .padding(.top, 30)
-                .padding(.horizontal, 15)
-            Spacer()
+        ZStack {
+            WaveAnimation()
+            VStack {
+                HStack {
+                    VStack (alignment: .leading) {
+                        Text(journal.title)
+                            .fontWeight(.bold)
+                            .font(.system(size: 24))
+                            .foregroundColor(.blue).opacity(0.7)
+                        Text(journal.date)
+                            .fontWeight(.bold)
+                            .font(.system(size: 14))
+                    }
+                    .padding(.top, 25)
+                    Spacer()
+                }
+                .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 40)
+                .padding(.horizontal)
+                .padding(.bottom, 20)
+                
+                HStack {
+                    VStack (alignment: .leading) {
+                        Text(journal.description)
+                            .foregroundColor(.black)
+                            .padding(.top, 15)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    Spacer()
+                }
+            }.edgesIgnoringSafeArea(.top)
         }
     }
 }
