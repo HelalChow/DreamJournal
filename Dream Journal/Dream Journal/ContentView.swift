@@ -73,14 +73,7 @@ class getData: ObservableObject {
     }
 }
 
-func SaveData(txt: String) {
-    let db = Firestore.firestore()
-    db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document().setData(["title": txt, "description": txt, "date": Date()]) { (err) in
-        if err != nil {
-            return
-        }
-    }
-}
+
 
 struct Journal: Identifiable {
     var id: String
@@ -108,7 +101,8 @@ struct Indicator: UIViewRepresentable {
 }
 
 struct EditView: View {
-    @State var txt = ""
+    @Binding var txt: String
+    @Binding var docID: String
     @Binding var show: Bool
     
     var body: some View {
@@ -118,7 +112,7 @@ struct EditView: View {
                 .background(Color.black.opacity(0.05))
             Button(action: {
                 self.show.toggle()
-                SaveData(txt: self.txt)
+                self.SaveData()
             }) {
                 Text("Save")
                     .padding(.vertical)
@@ -128,6 +122,24 @@ struct EditView: View {
             .background(Color.blue.opacity(0.8))
             .clipShape(Capsule())
             .padding()
+        }.edgesIgnoringSafeArea(.bottom)
+    }
+    func SaveData() {
+        let db = Firestore.firestore()
+        
+        if self.docID != "" {
+            db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document(self.docID).updateData(["title": self.txt, "description": self.txt, "date": Date()]) { (err) in
+                if err != nil {
+                    return
+                }
+            }
+        }
+        else {
+            db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document().setData(["title": self.txt, "description": self.txt, "date": Date()]) { (err) in
+                if err != nil {
+                    return
+                }
+            }
         }
     }
 }
@@ -141,9 +153,16 @@ struct MultiLineTF: UIViewRepresentable {
     
     func makeUIView(context: UIViewRepresentableContext<MultiLineTF>) -> UITextView {
         let view = UITextView()
-        view.text = "Type Something"
+        if self.txt != "" {
+            view.text = self.txt
+            view.textColor = .black
+        }
+        else {
+            view.text = "Type Something"
+            view.textColor = .gray
+        }
+        
         view.font = .systemFont(ofSize: 18)
-        view.textColor = .gray
         view.isEditable = true
         view.backgroundColor = .clear
         view.delegate = context.coordinator
@@ -157,8 +176,10 @@ struct MultiLineTF: UIViewRepresentable {
             parent = parent1
         }
         func textViewDidBeginEditing(_ textView: UITextView) {
-            textView.text = ""
-            textView.textColor = .black
+            if self.parent.txt == "" {
+                textView.text = ""
+                textView.textColor = .black
+            }
         }
         func textViewDidChange(_ textView: UITextView) {
             self.parent.txt = textView.text

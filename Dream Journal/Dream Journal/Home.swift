@@ -13,6 +13,8 @@ struct JournalList: View {
     @State var show = false
     @State var txt = ""
     @State var show2 = false
+    @State var txt2 = ""
+    @State var docID = ""
     @ObservedObject var data = getData()
 
     var body: some View {
@@ -99,7 +101,13 @@ struct JournalList: View {
                         else {
                             VStack (spacing: 15) {
                                 ForEach(self.data.datas) {entry in
-                                    cellView(journal: entry)
+                                    Button(action: {
+                                        self.docID = entry.id
+                                        self.txt2 = entry.title
+                                        self.show2.toggle()
+                                    }) {
+                                        cellView(journal: entry)
+                                    }
                                 }
                             }
                             .padding(.horizontal, 15)
@@ -110,6 +118,8 @@ struct JournalList: View {
             }
             
             Button(action: {
+                self.txt2 = ""
+                self.docID = ""
                 self.show2.toggle()
             }) {
                 Image(systemName: "plus")
@@ -123,7 +133,7 @@ struct JournalList: View {
             .padding()
         }
         .sheet(isPresented: self.$show2) {
-            EditView(show: self.$show2)
+            EditView(txt: self.$txt2, docID: self.$docID, show: self.$show2)
         }
     }
 }
