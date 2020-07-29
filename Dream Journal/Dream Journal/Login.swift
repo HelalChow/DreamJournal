@@ -180,9 +180,10 @@ struct SignUp: View {
     @Binding var show: Bool
     @State var alert = false
     @State var error = ""
-    
+
     var body: some View {
         ZStack {
+            WaveAnimation()
             ZStack(alignment: .topLeading) {
                 GeometryReader{_ in
                     VStack {
@@ -258,22 +259,26 @@ struct SignUp: View {
                     .padding(.horizontal, 25)
                 }
                 
-                Button(action: {
-                    self.show.toggle()
-                }) {
-                    Image(systemName: "chevron.left")
-                        .font(.title)
-                        .foregroundColor(Color.blue)
-                }
-                .padding()
+//                Button(action: {
+//                    self.show.toggle()
+//                }) {
+//                    Image(systemName: "chevron.left")
+//                        .font(.title)
+//                        .foregroundColor(Color.blue)
+//                }
+//                .padding()
+//                .padding(.top, 75)
             }
-            .navigationBarBackButtonHidden(true)
+//            .padding(.top, 75)
+//            .edgesIgnoringSafeArea(.top)
+//            .navigationBarBackButtonHidden(true)
             
             if self.alert {
                 ErrorView(alert: self.$alert, error: self.$error)
             }
         }
-        .navigationBarBackButtonHidden(true)
+        .edgesIgnoringSafeArea(.top)
+//        .navigationBarBackButtonHidden(true)
     }
     
     func register() {
