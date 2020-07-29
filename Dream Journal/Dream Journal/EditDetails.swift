@@ -25,12 +25,13 @@ struct EditView: View {
                         .fontWeight(.bold)
                         .font(.system(size: 24))
                         .foregroundColor(.blue)
-                        .opacity(0.8)
+                        .opacity(0.9)
                         .padding([.top, .leading], 20)
                     Spacer()
                     Button(action: {
                         self.show.toggle()
                         self.SaveData()
+                        self.description = ""
                     }) {
                         Text("Save")
                             .fontWeight(.bold)
@@ -48,7 +49,7 @@ struct EditView: View {
                         .fontWeight(.bold)
                         .font(.system(size: 20))
                         .foregroundColor(.blue)
-                        .opacity(0.5)
+                        .opacity(0.7)
                         .padding([.top, .leading], 20)
                     Spacer()
                 }
@@ -62,7 +63,7 @@ struct EditView: View {
                         .fontWeight(.bold)
                         .font(.system(size: 20))
                         .foregroundColor(.blue)
-                        .opacity(0.5)
+                        .opacity(0.7)
                         .padding([.top, .leading], 20)
                     Spacer()
                 }

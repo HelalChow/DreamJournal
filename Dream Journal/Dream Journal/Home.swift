@@ -61,16 +61,39 @@ struct JournalList: View {
                                     .foregroundColor(.white).padding(10)
                             }
                         }
+                    }
+                    .padding(self.show ? 10 : 0)
+                    .background(Color.blue)
+                    .opacity(0.7)
+                    .cornerRadius(20)
+                    
+                    HStack {
+                        Button(action: {
+                            withAnimation {
+                                self.title = ""
+                                self.description = ""
+                                self.docID = ""
+                                self.show2.toggle()
+                            }
+                        }) {
+                            Image(systemName: "plus.circle").resizable()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(.white)
+                        }
+                        .padding(.horizontal, 5)
+                        
                         Button(action: {
                             withAnimation {
                                 self.remove.toggle()
                             }
                         }) {
-                            Image(systemName: self.remove ? "xmark.circle" : "trash").resizable().frame(width: 23, height: 23).foregroundColor(.white)
+                            Image(systemName: self.remove ? "xmark.circle" : "trash").resizable()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(.white)
                         }
-                        .padding(.horizontal, 8)
+                        .padding(.horizontal, 5)
                     }
-                    .padding(self.show ? 10 : 0)
+                    .padding(8)
                     .background(Color.blue)
                     .opacity(0.7)
                     .cornerRadius(20)
@@ -146,20 +169,6 @@ struct JournalList: View {
                     }
                 }
             }
-            Button(action: {
-                self.title = ""
-                self.docID = ""
-                self.show2.toggle()
-            }) {
-                Image(systemName: "plus")
-                    .resizable()
-                    .frame(width: 18, height: 18)
-                    .foregroundColor(.white)
-            }.padding()
-            .background(Color.blue)
-            .opacity(0.8)
-            .clipShape(Circle())
-            .padding()
         }
         .sheet(isPresented: self.$show2) {
             EditView(title: self.$title, description: self.$description, docID: self.$docID, show: self.$show2)
