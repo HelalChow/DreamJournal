@@ -51,7 +51,7 @@ struct ViewJournal: View {
 //                                            }
 //                                        }
 //                                        .padding(.horizontal, 8)
-//                                        
+//
 //                                        NavigationLink(destination: EditView(txt: self.$txt2, docID: self.$docID, show: self.$show2)) {
 //                                            HStack {
 //                                                Text("Edit")
@@ -77,15 +77,17 @@ struct ViewJournal: View {
                     .padding(.horizontal)
                     .padding(.bottom, 20)
                     
-                    HStack {
-                        VStack (alignment: .leading) {
-                            Text(journal.description)
-                                .foregroundColor(.black)
-                                .padding(.top, 15)
+                    ScrollView {
+                        HStack {
+                            VStack (alignment: .leading) {
+                                Text(journal.description)
+                                    .foregroundColor(.black)
+                                    .padding(.top, 15)
+                                Spacer()
+                            }
+                            .padding(.horizontal)
                             Spacer()
                         }
-                        .padding(.horizontal)
-                        Spacer()
                     }
                     Spacer()
                 }

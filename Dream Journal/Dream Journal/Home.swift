@@ -197,6 +197,7 @@ struct cellView: View {
                             Text(journal.title).bold()
                                 .padding(.top, 8.0)
                                 .fixedSize(horizontal: false, vertical: true)
+                                .accentColor(Color.blue.opacity(0.7))
                             Text(journal.date)
                                 .font(.caption).padding(.bottom, 10.0)
                                 .accentColor(.black)
