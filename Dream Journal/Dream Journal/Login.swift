@@ -53,11 +53,14 @@ struct Login: View {
             ZStack(alignment: .topTrailing) {
                 GeometryReader{_ in
                     VStack {
+                        Image("wave")
+                            .resizable()
+                            .frame(width: 150, height: 150)
                         Text("Log in to your account")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
-                            .padding(.top, 100)
+                            .padding(.top, 0)
                         TextField("Email", text: self.$email)
                             .autocapitalization(.none)
                             .padding()
@@ -87,14 +90,30 @@ struct Login: View {
                         .padding(.top, 25)
                         
                         HStack {
+                            HStack {
+                                Button(action: {
+                                    self.show.toggle()
+                                }) {
+                                    Text("Register")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color.white)
+                                        .shadow(color: .black, radius: 1, x: 1, y: 1)
+                                }.padding(.horizontal, 5)
+                            }
+                            .padding(8)
+                            .background(Color.blue.opacity(0.7))
+                            .cornerRadius(20)
+                            .shadow(color: .gray, radius: 5, x: 1, y: 1)
+                            
                             Spacer()
+                            
                             Button(action: {
                                 self.reset()
                             }) {
                                 Text("Forgot password")
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.blue)
-                            }
+                            }.padding(.horizontal, 5)
                         }
                         .padding(.top, 20)
                         
@@ -102,9 +121,11 @@ struct Login: View {
                             self.verify()
                         }) {
                             Text("Log in")
+                                .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width - 50)
+                                .shadow(color: .black, radius: 1, x: 1, y: 1)
                         }
                         .background(Color.blue)
                         .cornerRadius(20)
@@ -112,18 +133,10 @@ struct Login: View {
                         
                         Spacer()
                     }
+                    .padding(.top, 40)
                     .padding(.horizontal, 25)
                 }
                 
-                Button(action: {
-                    self.show.toggle()
-                }) {
-                    Text("Register")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.blue)
-                }
-                .padding()
-                .padding(.top, 10)
             }
             
             if self.alert {
@@ -187,11 +200,14 @@ struct SignUp: View {
             ZStack(alignment: .topLeading) {
                 GeometryReader{_ in
                     VStack {
+                        Image("wave")
+                            .resizable()
+                            .frame(width: 150, height: 150)
                         Text("Sign up for an account")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
-                            .padding(.top, 100)
+                            .padding(.top, 0)
                         TextField("Email", text: self.$email)
                             .autocapitalization(.none)
                             .padding()
@@ -254,8 +270,8 @@ struct SignUp: View {
                         .cornerRadius(20)
                         .padding(.top, 25)
                         
-                        Spacer()
                     }
+                    .padding(.top, 40)
                     .padding(.horizontal, 25)
                 }
                 

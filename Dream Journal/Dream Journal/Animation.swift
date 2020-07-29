@@ -15,20 +15,20 @@ struct WaveAnimation: View {
     @State var isAnimated = false
     var body: some View {
         ZStack {
-            getSinWave(interval: universalSize.width, amplitude: 200, baseline: 60 + universalSize.height/2)
+            getSinWave(interval: universalSize.width, amplitude: 200, baseline: 100 + universalSize.height/2)
                 .foregroundColor(Color.init(red: 0.3, green: 0.6, blue: 1).opacity(0.4))
                 .offset(x: isAnimated ? -1 * universalSize.width : 0)
                 .animation(
                     Animation.linear(duration: 10)
                     .repeatForever(autoreverses: false))
-            getSinWave(interval: universalSize.width * 1.5, amplitude: 150, baseline: 100 + universalSize.height/2)
+            getSinWave(interval: universalSize.width * 1.5, amplitude: 150, baseline: 140 + universalSize.height/2)
                 .foregroundColor(Color.init(red: 0.3, green: 0.6, blue: 1).opacity(0.4))
                 .offset(x: isAnimated ? -1 * 1.5 * universalSize.width : 0)
                 .animation(
                     Animation.linear(duration: 6)
                     .repeatForever(autoreverses: false)
             )
-            getSinWave(interval: universalSize.width * 3, amplitude: 100, baseline: 140 + universalSize.height/2)
+            getSinWave(interval: universalSize.width * 3, amplitude: 100, baseline: 180 + universalSize.height/2)
                 .foregroundColor(Color.init(red: 0.3, green: 0.6, blue: 1).opacity(0.4))
                 .offset(x: isAnimated ? -1 * 3 * universalSize.width : 0)
                 .animation(
