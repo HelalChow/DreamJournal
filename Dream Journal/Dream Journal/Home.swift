@@ -174,6 +174,19 @@ struct JournalList: View {
                     }
                 }
             }
+            Button(action: {
+                try! Auth.auth().signOut()
+                UserDefaults.standard.set(false, forKey: "status")
+                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+            }) {
+                Text("Log Out")
+                    .foregroundColor(.white)
+                    .padding(.vertical)
+                    .frame(width: UIScreen.main.bounds.width - 50)
+            }
+            .background(Color.blue)
+            .cornerRadius(20)
+            .padding(.bottom, 25)
         }
         .sheet(isPresented: self.$show2) {
             EditView(title: self.$title, description: self.$description, docID: self.$docID, show: self.$show2)

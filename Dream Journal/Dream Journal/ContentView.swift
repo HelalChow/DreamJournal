@@ -14,12 +14,16 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 WaveAnimation()
-                JournalList()
+                Authenticate()
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
+//                JournalList()
+//                    .navigationBarTitle("")
+//                    .navigationBarHidden(true)
             }
 //            .background(Color.black)
-            .edgesIgnoringSafeArea(.vertical)
+//            .edgesIgnoringSafeArea(.vertical)
         }
     }
 }
