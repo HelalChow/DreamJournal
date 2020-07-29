@@ -118,50 +118,6 @@ struct Indicator: UIViewRepresentable {
     }
 }
 
-struct EditView: View {
-    @Binding var txt: String
-    @Binding var docID: String
-    @Binding var show: Bool
-    
-    var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            MultiLineTF(txt: self.$txt)
-                .padding()
-                .background(Color.black.opacity(0.05))
-            Button(action: {
-                self.show.toggle()
-                self.SaveData()
-            }) {
-                Text("Save")
-                    .padding(.vertical)
-                    .padding(.horizontal, 25)
-                    .foregroundColor(.white)
-            }
-            .background(Color.blue.opacity(0.8))
-            .clipShape(Capsule())
-            .padding()
-        }.edgesIgnoringSafeArea(.bottom)
-    }
-    func SaveData() {
-        let db = Firestore.firestore()
-        
-        if self.docID != "" {
-            db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document(self.docID).updateData(["title": self.txt, "description": self.txt, "date": Date()]) { (err) in
-                if err != nil {
-                    return
-                }
-            }
-        }
-        else {
-            db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document().setData(["title": self.txt, "description": self.txt, "date": Date()]) { (err) in
-                if err != nil {
-                    return
-                }
-            }
-        }
-    }
-}
-
 struct MultiLineTF: UIViewRepresentable {
     func makeCoordinator() -> MultiLineTF.Coordinator {
         return MultiLineTF.Coordinator(parent1: self)
@@ -177,10 +133,10 @@ struct MultiLineTF: UIViewRepresentable {
         }
         else {
             view.text = "Type Something"
-            view.textColor = .gray
+            view.textColor = .lightGray
         }
         
-        view.font = .systemFont(ofSize: 18)
+        view.font = .systemFont(ofSize: 16)
         view.isEditable = true
         view.backgroundColor = .clear
         view.delegate = context.coordinator

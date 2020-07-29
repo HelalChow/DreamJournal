@@ -14,7 +14,8 @@ struct JournalList: View {
     @State var show = false
     @State var txt = ""
     @State var show2 = false
-    @State var txt2 = ""
+    @State var title = ""
+    @State var description = ""
     @State var docID = ""
     @State var remove = false
     @ObservedObject var data = getData()
@@ -146,7 +147,7 @@ struct JournalList: View {
                 }
             }
             Button(action: {
-                self.txt2 = ""
+                self.title = ""
                 self.docID = ""
                 self.show2.toggle()
             }) {
@@ -161,7 +162,7 @@ struct JournalList: View {
             .padding()
         }
         .sheet(isPresented: self.$show2) {
-            EditView(txt: self.$txt2, docID: self.$docID, show: self.$show2)
+            EditView(title: self.$title, description: self.$description, docID: self.$docID, show: self.$show2)
         }
     }
 }
