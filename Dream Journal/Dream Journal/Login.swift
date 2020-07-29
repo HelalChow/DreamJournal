@@ -134,6 +134,7 @@ struct Login: View {
                 if err != nil {
                     self.error = err!.localizedDescription
                     self.alert.toggle()
+                    return
                 }
                 print("Success")
                 UserDefaults.standard.set(true, forKey: "status")
@@ -253,7 +254,14 @@ struct SignUp: View {
         if self.email != "" {
             if self.pass == self.repass {
                 Auth.auth().createUser(withEmail: self.email, password: self.pass) { (res, err) in
-                    
+                    if err != nil {
+                        self.error = err!.localizedDescription
+                        self.alert.toggle()
+                        return
+                    }
+                    print("success")
+                    UserDefaults.standard.set(true, forKey: "status")
+                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                 }
             }
             else {
