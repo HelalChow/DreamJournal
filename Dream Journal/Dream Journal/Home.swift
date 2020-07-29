@@ -123,7 +123,7 @@ struct JournalList: View {
                                         .padding(.top, 10)
                                 }
                                 else {
-                                    ForEach(self.data.datas.filter({$0.title.lowercased().contains(self.txt.lowercased())})) {entry in
+                                    ForEach(self.data.datas.reversed().filter({$0.title.lowercased().contains(self.txt.lowercased())})) {entry in
                                         HStack {
                                             cellView(journal: entry)
                                             if self.remove {
@@ -146,7 +146,7 @@ struct JournalList: View {
                         }
                         else {
                             VStack (spacing: 15) {
-                                ForEach(self.data.datas) {entry in
+                                ForEach(self.data.datas.reversed()) {entry in
                                     HStack {
                                         cellView(journal: entry)
                                         if self.remove {

@@ -39,7 +39,7 @@ class getData: ObservableObject {
 
     init() {
         let db = Firestore.firestore()
-        db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").order(by: "date", descending: true).addSnapshotListener { (snap, err) in
+        db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").order(by: "date", descending: false).addSnapshotListener { (snap, err) in
             if err != nil {
                 self.noData = true
                 return
