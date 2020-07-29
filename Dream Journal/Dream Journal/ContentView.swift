@@ -18,7 +18,7 @@ struct ContentView: View {
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
             }
-    //        .background(Color.black)
+//            .background(Color.black)
             .edgesIgnoringSafeArea(.vertical)
         }
     }

@@ -23,10 +23,11 @@ struct EditView: View {
                 HStack {
                     Text("New Journal Entry")
                         .fontWeight(.bold)
-                        .font(.system(size: 24))
+                        .font(.system(size: 26))
                         .foregroundColor(.blue)
-                        .opacity(0.9)
+                        .opacity(0.7)
                         .padding([.top, .leading], 20)
+                        .shadow(color: .gray, radius: 1, x: 0.5, y: 0.5)
                     Spacer()
                     Button(action: {
                         self.show.toggle()
@@ -37,11 +38,13 @@ struct EditView: View {
                             .fontWeight(.bold)
                             .padding(.all, 15)
                             .foregroundColor(.white)
+                            .shadow(color: .black, radius: 1, x: 1, y: 1)
                             
                     }
-                    .background(Color.blue.opacity(0.8))
+                    .background(Color.blue.opacity(0.7))
                     .clipShape(Capsule())
                     .padding([.top, .trailing], 20)
+                    .shadow(color: .gray, radius: 5, x: 2, y: 2)
                 }
                 
                 HStack {

@@ -30,6 +30,7 @@ struct JournalList: View {
                             .font(.title)
                             .foregroundColor(.blue)
                             .opacity(0.7)
+                            .shadow(color: .gray, radius: 1, x: 0.5, y: 0.5)
                     }
                     Spacer(minLength: 0)
                     HStack {
@@ -37,7 +38,8 @@ struct JournalList: View {
                             Image(systemName: Constants.searchIcon.rawValue)
                                 .padding(.horizontal, 8)
                                 .foregroundColor(.white)
-                            TextField("Search Dreams", text: self.$txt)
+                                .shadow(color: .black, radius: 1, x: 1, y: 1)
+                            TextField("Search Journals", text: self.$txt)
                                 .foregroundColor(.white)
                             Button(action: {
                                 withAnimation {
@@ -46,8 +48,8 @@ struct JournalList: View {
                                 }
                             }) {
                                 Image(systemName: "xmark")
-                                    .foregroundColor(.white
-                                )
+                                    .foregroundColor(.white)
+                                    .shadow(color: .black, radius: 1, x: 1, y: 1)
                             }
                             .padding(.horizontal, 8)
                         }
@@ -59,13 +61,14 @@ struct JournalList: View {
                             }) {
                                 Image(systemName: Constants.searchIcon.rawValue)
                                     .foregroundColor(.white).padding(10)
+                                    .shadow(color: .black, radius: 1, x: 1, y: 1)
                             }
                         }
                     }
-                    .padding(self.show ? 10 : 0)
-                    .background(Color.blue)
-                    .opacity(0.7)
+                    .padding(self.show ? 10 : 1)
+                    .background(Color.blue.opacity(0.7))
                     .cornerRadius(20)
+                    .shadow(color: .gray, radius: 5, x: 1, y: 1)
                     
                     HStack {
                         Button(action: {
@@ -79,6 +82,7 @@ struct JournalList: View {
                             Image(systemName: "plus.circle").resizable()
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.white)
+                                .shadow(color: .black, radius: 1, x: 1, y: 1)
                         }
                         .padding(.horizontal, 5)
                         
@@ -90,13 +94,14 @@ struct JournalList: View {
                             Image(systemName: self.remove ? "xmark.circle" : "trash").resizable()
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.white)
+                                .shadow(color: .black, radius: 1, x: 1, y: 1)
                         }
                         .padding(.horizontal, 5)
                     }
                     .padding(8)
-                    .background(Color.blue)
-                    .opacity(0.7)
+                    .background(Color.blue.opacity(0.7))
                     .cornerRadius(20)
+                    .shadow(color: .gray, radius: 5, x: 1, y: 1)
                 }
                 .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 15)
                 .padding(.horizontal)
@@ -184,8 +189,8 @@ struct cellView: View {
             ZStack {
                 Rectangle().fill(Color.white)
                     .cornerRadius(10)
-                    .shadow(color: .gray, radius: 3, x: 1, y: 1)
-                    .opacity(0.8)
+                    .shadow(color: .gray, radius: 5, x: 2, y: 2)
+                    .opacity(0.9)
                 VStack {
                     HStack {
                         VStack (alignment: .leading) {
@@ -194,6 +199,7 @@ struct cellView: View {
                                 .fixedSize(horizontal: false, vertical: true)
                             Text(journal.date)
                                 .font(.caption).padding(.bottom, 10.0)
+                                .accentColor(.black)
                             Text(journal.description)
                                 .font(.system(size: 14))
                                 .foregroundColor(.gray)
