@@ -59,6 +59,7 @@ struct Login: View {
                             .foregroundColor(self.color)
                             .padding(.top, 100)
                         TextField("Email", text: self.$email)
+                            .autocapitalization(.none)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color(.blue) : self.color, lineWidth:  2))
                             .padding(.top, 25)
@@ -67,9 +68,11 @@ struct Login: View {
                             VStack {
                                 if self.visible {
                                     TextField("Password", text: self.$pass)
+                                        .autocapitalization(.none)
                                 }
                                 else {
                                     SecureField("Password", text: self.$pass)
+                                        .autocapitalization(.none)
                                 }
                             }
                             Button(action: {
@@ -86,7 +89,7 @@ struct Login: View {
                         HStack {
                             Spacer()
                             Button(action: {
-                                
+                                self.reset()
                             }) {
                                 Text("Forgot password")
                                     .fontWeight(.bold)
@@ -146,6 +149,24 @@ struct Login: View {
             self.alert.toggle()
         }
     }
+    
+    func reset() {
+        if self.email != "" {
+            Auth.auth().sendPasswordReset(withEmail: self.email) { (err) in
+                if err != nil {
+                    self.error = err!.localizedDescription
+                    self.alert.toggle()
+                    return
+                }
+                self.error = "RESET"
+                self.alert.toggle()
+            }
+        }
+        else {
+            self.error = "Email ID is empty"
+            self.alert.toggle()
+        }
+    }
 }
 
 struct SignUp: View {
@@ -171,6 +192,7 @@ struct SignUp: View {
                             .foregroundColor(self.color)
                             .padding(.top, 100)
                         TextField("Email", text: self.$email)
+                            .autocapitalization(.none)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color(.blue) : self.color, lineWidth:  2))
                             .padding(.top, 25)
@@ -179,9 +201,11 @@ struct SignUp: View {
                             VStack {
                                 if self.visible {
                                     TextField("Password", text: self.$pass)
+                                        .autocapitalization(.none)
                                 }
                                 else {
                                     SecureField("Password", text: self.$pass)
+                                        .autocapitalization(.none)
                                 }
                             }
                             Button(action: {
@@ -199,9 +223,11 @@ struct SignUp: View {
                             VStack {
                                 if self.revisible {
                                     TextField("Re-enter Password", text: self.$repass)
+                                        .autocapitalization(.none)
                                 }
                                 else {
                                     SecureField("Re-enter Password", text: self.$repass)
+                                        .autocapitalization(.none)
                                 }
                             }
                             Button(action: {
@@ -286,14 +312,14 @@ struct ErrorView: View {
         GeometryReader {_ in
             VStack {
                 HStack {
-                    Text("Error")
+                    Text(self.error == "RESET" ? "Message" : "Error")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(self.color)
                     Spacer()
                 }.padding(.horizontal, 25)
                 
-                Text(self.error)
+                Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
                     .foregroundColor(self.color)
                     .padding(.top)
                     .padding(.horizontal, 25)
@@ -301,7 +327,7 @@ struct ErrorView: View {
                 Button(action: {
                     self.alert.toggle()
                 }) {
-                    Text("Cancel")
+                    Text(self.error == "RESET" ? "OK" : "Cancel")
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 120)
