@@ -81,6 +81,12 @@ struct EditView: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
+        .simultaneousGesture(
+            TapGesture()
+                .onEnded {_ in
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
+        )
     }
     func SaveData() {
         let db = Firestore.firestore()

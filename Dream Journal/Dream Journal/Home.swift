@@ -207,6 +207,12 @@ struct JournalList: View {
         .sheet(isPresented: self.$show2) {
             EditView(title: self.$title, description: self.$description, docID: self.$docID, show: self.$show2)
         }
+        .simultaneousGesture(
+            TapGesture()
+                .onEnded {_ in
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
+        )
     }
 }
 

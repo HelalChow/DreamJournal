@@ -146,7 +146,14 @@ struct Login: View {
                 ErrorView(alert: self.$alert, error: self.$error)
             }
         }
+        .simultaneousGesture(
+            TapGesture()
+                .onEnded {_ in
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
+        )
     }
+    
     func verify() {
         if self.email != "" && self.pass != "" {
             Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res, err) in
@@ -282,8 +289,15 @@ struct SignUp: View {
                     .padding(.top, 100)
                     .padding(.horizontal, 25)
                     .modifier(Keyboard())
+                    .simultaneousGesture(
+                        TapGesture()
+                            .onEnded {_ in
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            }
+                    )
                 }
             }
+          
             if self.alert {
                 ErrorView(alert: self.$alert, error: self.$error)
             }
