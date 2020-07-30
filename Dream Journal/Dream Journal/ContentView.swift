@@ -27,7 +27,6 @@ struct ContentView: View {
     }
 }
 
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
@@ -38,8 +37,6 @@ class getData: ObservableObject {
     @Published var datas = [Journal]()
     @Published var noData = false
     
-    let currEmail = "h3lal99@gmail.com"
-
     init() {
         let uid = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()

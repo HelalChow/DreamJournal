@@ -25,7 +25,7 @@ struct EditView: View {
                         .fontWeight(.bold)
                         .font(.system(size: 26))
                         .foregroundColor(.blue)
-                        .opacity(0.7)
+                        .opacity(0.8)
                         .padding([.top, .leading], 20)
                         .shadow(color: .gray, radius: 1, x: 0.5, y: 0.5)
                     Spacer()
@@ -36,7 +36,8 @@ struct EditView: View {
                     }) {
                         Text("Save")
                             .fontWeight(.bold)
-                            .padding(.all, 15)
+                            .padding(.horizontal, 15)
+                            .padding(.vertical, 10)
                             .foregroundColor(.white)
                             .shadow(color: .black, radius: 1, x: 1, y: 1)
                             

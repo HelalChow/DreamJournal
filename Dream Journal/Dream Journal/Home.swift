@@ -19,6 +19,7 @@ struct JournalList: View {
     @State var docID = ""
     @State var remove = false
     @ObservedObject var data = getData()
+    let uid = Auth.auth().currentUser?.uid
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -72,33 +73,19 @@ struct JournalList: View {
                     
                     HStack {
                         Button(action: {
-                            withAnimation {
-                                self.title = ""
-                                self.description = ""
-                                self.docID = ""
-                                self.show2.toggle()
-                            }
+                            try! Auth.auth().signOut()
+                            UserDefaults.standard.set(false, forKey: "status")
+                            NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                         }) {
-                            Image(systemName: "plus.circle").resizable()
-                                .frame(width: 20, height: 20)
+                            Text("Sign Out")
+                                .fontWeight(.bold)
                                 .foregroundColor(.white)
-                                .shadow(color: .black, radius: 1, x: 1, y: 1)
-                        }
-                        .padding(.horizontal, 5)
-                        
-                        Button(action: {
-                            withAnimation {
-                                self.remove.toggle()
-                            }
-                        }) {
-                            Image(systemName: self.remove ? "xmark.circle" : "trash").resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.white)
+                                .font(.system(size: 14))
                                 .shadow(color: .black, radius: 1, x: 1, y: 1)
                         }
                         .padding(.horizontal, 5)
                     }
-                    .padding(8)
+                    .padding(9)
                     .background(Color.blue.opacity(0.7))
                     .cornerRadius(20)
                     .shadow(color: .gray, radius: 5, x: 1, y: 1)
@@ -134,7 +121,7 @@ struct JournalList: View {
                                             if self.remove {
                                                 Button(action: {
                                                     let db = Firestore.firestore()
-                                                    db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document(entry.id).delete()
+                                                    db.collection("user").document(self.uid!).collection("journals").document(entry.id).delete()
                                                 }) {
                                                     Image(systemName: "minus.circle.fill")
                                                         .resizable()
@@ -157,7 +144,7 @@ struct JournalList: View {
                                         if self.remove {
                                             Button(action: {
                                                 let db = Firestore.firestore()
-                                                db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document(entry.id).delete()
+                                                db.collection("user").document(self.uid!).collection("journals").document(entry.id).delete()
                                             }) {
                                                 Image(systemName: "minus.circle.fill")
                                                     .resizable()
@@ -173,22 +160,48 @@ struct JournalList: View {
                         }
                     }
                 }
+                
+                HStack {
+                    Button(action: {
+                        withAnimation {
+                            self.title = ""
+                            self.description = ""
+                            self.docID = ""
+                            self.show2.toggle()
+                        }
+                    }) {
+                        Image(systemName: "plus.circle").resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.white)
+                            .shadow(color: .black, radius: 1, x: 1, y: 1)
+                    }
+                    .padding(.leading, 70)
+                    .padding(.vertical, 10)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        withAnimation {
+                            self.remove.toggle()
+                        }
+                    }) {
+                        Image(systemName: self.remove ? "xmark.circle" : "trash").resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.white)
+                            .shadow(color: .black, radius: 1, x: 1, y: 1)
+                    }
+                    .padding(.trailing, 70)
+                    
+                }
+                .background(Color.blue.opacity(0.7))
+                .cornerRadius(20)
+                .padding(.top, 10)
+                .padding(.bottom, 35)
+                .padding(.horizontal)
+                .shadow(color: .gray, radius: 5, x: 1, y: 1)
             }
-            Button(action: {
-                try! Auth.auth().signOut()
-                UserDefaults.standard.set(false, forKey: "status")
-                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-            }) {
-                Text("Log Out")
-                    .foregroundColor(.white)
-                    .padding(.vertical)
-                    .frame(width: UIScreen.main.bounds.width - 50)
-            }
-            .background(Color.blue)
-            .cornerRadius(20)
-            .padding(.bottom, 25)
         }
-        .edgesIgnoringSafeArea(.top)
+        .edgesIgnoringSafeArea(.vertical)
         .sheet(isPresented: self.$show2) {
             EditView(title: self.$title, description: self.$description, docID: self.$docID, show: self.$show2)
         }
