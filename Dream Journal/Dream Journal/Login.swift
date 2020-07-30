@@ -196,6 +196,7 @@ struct SignUp: View {
     @Binding var show: Bool
     @State var alert = false
     @State var error = ""
+    @State var value: CGFloat = 0
 
     var body: some View {
         ZStack {
@@ -280,6 +281,7 @@ struct SignUp: View {
                     }
                     .padding(.top, 100)
                     .padding(.horizontal, 25)
+                    .modifier(Keyboard())
                 }
             }
             if self.alert {

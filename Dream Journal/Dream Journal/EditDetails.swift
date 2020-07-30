@@ -77,6 +77,7 @@ struct EditView: View {
                         .opacity(0.7)
                     Spacer()
                 }
+                .modifier(Keyboard())
             }
         }
         .edgesIgnoringSafeArea(.bottom)

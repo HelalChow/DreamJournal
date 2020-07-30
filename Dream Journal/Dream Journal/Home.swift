@@ -96,8 +96,10 @@ struct JournalList: View {
                 
                 if self.data.datas.isEmpty {
                     if self.data.noData {
-                        Spacer()
-                        Text("There are no journals")
+                        Text("There are no journals. Press + to begin")
+                            .font(.system(size: 20))
+                            .multilineTextAlignment(.center)
+                            .padding(.top, 200)
                         Spacer()
                     }
                     else {

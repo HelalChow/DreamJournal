@@ -21,8 +21,8 @@ struct ContentView: View {
 //                    .navigationBarTitle("")
 //                    .navigationBarHidden(true)
             }
+            .animation(.default)
 //            .background(Color.black)
-//            .edgesIgnoringSafeArea(.vertical)
         }
     }
 }
@@ -57,7 +57,7 @@ class getData: ObservableObject {
                     let date = journal.document.get("date") as! Timestamp
                     
                     let format = DateFormatter()
-                    format.dateFormat = "dd/MM/yyyy hh:mm a"
+                    format.dateFormat = "MM/dd/yyyy hh:mm a"
                     let dateString = format.string(from: date.dateValue())
                     
                     self.datas.append(Journal(id: id, title: title, description: description, date: dateString))
