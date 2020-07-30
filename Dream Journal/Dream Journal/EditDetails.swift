@@ -82,16 +82,16 @@ struct EditView: View {
     }
     func SaveData() {
         let db = Firestore.firestore()
-        
+        let uid = Auth.auth().currentUser?.uid
         if self.docID != "" {
-            db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document(self.docID).updateData(["title": self.title, "description": self.description, "date": Date()]) { (err) in
+            db.collection("user").document(uid!).collection("journals").document(self.docID).updateData(["title": self.title, "description": self.description, "date": Date()]) { (err) in
                 if err != nil {
                     return
                 }
             }
         }
         else {
-            db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").document().setData(["title": self.title, "description": self.description, "date": Date()]) { (err) in
+            db.collection("user").document(uid!).collection("journals").document().setData(["title": self.title, "description": self.description, "date": Date()]) { (err) in
                 if err != nil {
                     return
                 }

@@ -18,6 +18,8 @@ struct Authenticate: View {
         VStack {
             if self.status {
                 JournalList()
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
             }
             else {
                 ZStack {
@@ -127,9 +129,10 @@ struct Login: View {
                                 .frame(width: UIScreen.main.bounds.width - 50)
                                 .shadow(color: .black, radius: 1, x: 1, y: 1)
                         }
-                        .background(Color.blue)
+                        .background(Color.blue.opacity(0.7))
                         .cornerRadius(20)
                         .padding(.top, 25)
+                        .shadow(color: .gray, radius: 5, x: 1, y: 1)
                         
                         Spacer()
                     }
@@ -261,40 +264,29 @@ struct SignUp: View {
                         Button(action: {
                             self.register()
                         }) {
-                            Text("Register")
+                            Text("Sign Up")
+                                .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width - 50)
+                                .shadow(color: .black, radius: 1, x: 1, y: 1)
                         }
-                        .background(Color.blue)
+                        .background(Color.blue.opacity(0.7))
                         .cornerRadius(20)
                         .padding(.top, 25)
+                        .shadow(color: .gray, radius: 5, x: 1, y: 1)
                         
+                        Spacer()
                     }
-                    .padding(.top, 40)
+                    .padding(.top, 100)
                     .padding(.horizontal, 25)
                 }
-                
-//                Button(action: {
-//                    self.show.toggle()
-//                }) {
-//                    Image(systemName: "chevron.left")
-//                        .font(.title)
-//                        .foregroundColor(Color.blue)
-//                }
-//                .padding()
-//                .padding(.top, 75)
             }
-//            .padding(.top, 75)
-//            .edgesIgnoringSafeArea(.top)
-//            .navigationBarBackButtonHidden(true)
-            
             if self.alert {
                 ErrorView(alert: self.$alert, error: self.$error)
             }
         }
         .edgesIgnoringSafeArea(.top)
-//        .navigationBarBackButtonHidden(true)
     }
     
     func register() {
@@ -306,9 +298,10 @@ struct SignUp: View {
                         self.alert.toggle()
                         return
                     }
-                    print("success")
                     UserDefaults.standard.set(true, forKey: "status")
                     NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                    
+                    self.createUser()
                 }
             }
             else {
@@ -320,6 +313,12 @@ struct SignUp: View {
             self.error = "Please fill all the contents properly"
             self.alert.toggle()
         }
+    }
+    
+    func createUser() {
+        let db = Firestore.firestore()
+        let uid = Auth.auth().currentUser?.uid
+        db.collection("user").document(uid!).setData(["email": self.email])
     }
 }
 

@@ -4,7 +4,6 @@
 //
 //  Created by Helal Chowdhury on 7/27/20.
 //  Copyright © 2020 Helal. All rights reserved.
-//
 
 import SwiftUI
 import Firebase
@@ -42,8 +41,9 @@ class getData: ObservableObject {
     let currEmail = "h3lal99@gmail.com"
 
     init() {
+        let uid = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()
-        db.collection("user").document("e0cdEmwKOGvPDTADtgFu").collection("journals").order(by: "date", descending: false).addSnapshotListener { (snap, err) in
+        db.collection("user").document(uid!).collection("journals").order(by: "date", descending: false).addSnapshotListener { (snap, err) in
             if err != nil {
                 self.noData = true
                 return

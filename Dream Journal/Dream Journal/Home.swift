@@ -103,9 +103,9 @@ struct JournalList: View {
                     .cornerRadius(20)
                     .shadow(color: .gray, radius: 5, x: 1, y: 1)
                 }
-                .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 15)
+                .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 5)
                 .padding(.horizontal)
-                .padding(.bottom, 20)
+                .padding(.vertical, 20)
                 
                 if self.data.datas.isEmpty {
                     if self.data.noData {
@@ -188,6 +188,7 @@ struct JournalList: View {
             .cornerRadius(20)
             .padding(.bottom, 25)
         }
+        .edgesIgnoringSafeArea(.top)
         .sheet(isPresented: self.$show2) {
             EditView(title: self.$title, description: self.$description, docID: self.$docID, show: self.$show2)
         }
