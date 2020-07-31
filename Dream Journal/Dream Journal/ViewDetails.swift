@@ -29,7 +29,8 @@ struct ViewJournal: View {
                                 Text(journal.title)
                                     .fontWeight(.bold)
                                     .font(.system(size: 24))
-                                    .foregroundColor(.white).opacity(1)
+                                    .foregroundColor(.white)
+                                    .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
                                 Text(journal.date)
                                     .font(.system(size: 14))
                             }

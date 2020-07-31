@@ -63,9 +63,14 @@ struct Login: View {
                         Image("logo")
                             .resizable()
                         .scaledToFit()
-//                            .frame(width: 150, height: 150)
-                        Text("Log in to your account")
+                        Text("JOURNAL WAVE")
                             .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.blue.opacity(0.85))
+                            .padding(.top, 0)
+                            .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
+                        Text("Log in to your account")
+                            .font(.body)
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
                             .padding(.top, 0)
@@ -73,7 +78,7 @@ struct Login: View {
                             .autocapitalization(.none)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color(.blue) : self.color, lineWidth:  2))
-                            .padding(.top, 25)
+                            .padding(.top, 20)
                         
                         HStack(spacing: 15) {
                             VStack {

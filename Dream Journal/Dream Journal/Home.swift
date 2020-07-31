@@ -34,7 +34,7 @@ struct JournalList: View {
                                 .font(.title)
                                 .foregroundColor(.blue)
                                 .opacity(0.7)
-                                .shadow(color: .black, radius: 0.5, x: 1, y: 1)
+                                .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
                             
                             Text(self.name)
                                 .fontWeight(.bold)

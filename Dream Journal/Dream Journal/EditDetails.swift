@@ -24,10 +24,10 @@ struct EditView: View {
                     Text("New Journal Entry")
                         .fontWeight(.bold)
                         .font(.system(size: 26))
-                        .foregroundColor(.blue)
+                        .foregroundColor(.white)
                         .opacity(0.8)
                         .padding([.top, .leading], 20)
-                        .shadow(color: .black, radius: 0.5, x: 1, y: 1)
+                        .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
                     Spacer()
                     Button(action: {
                         self.show.toggle()
@@ -47,6 +47,8 @@ struct EditView: View {
                     .padding([.top, .trailing], 20)
                     .shadow(color: .gray, radius: 5, x: 2, y: 2)
                 }
+                .padding(.bottom, 20)
+                .background(Color.blue.opacity(0.6))
                 
                 HStack {
                     Text("Title:")
@@ -58,6 +60,7 @@ struct EditView: View {
                     Spacer()
                 }
                 TextField("Enter Title", text: self.$title)
+                    .font(Font.body.bold())
                     .font(.system(size: 16))
                     .padding(.horizontal, 20)
                     .padding(.top, 5)
