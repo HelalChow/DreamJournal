@@ -155,6 +155,7 @@ struct Login: View {
     }
     
     func verify() {
+        let user = Auth.auth().currentUser
         if self.email != "" && self.pass != "" {
             Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res, err) in
                 if err != nil {
@@ -162,7 +163,11 @@ struct Login: View {
                     self.alert.toggle()
                     return
                 }
-                print("Success")
+                if !user!.isEmailVerified {
+                    self.error = "Email has not yet been verified"
+                    self.alert.toggle()
+                    return
+                }
                 UserDefaults.standard.set(true, forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
             }
@@ -204,6 +209,8 @@ struct SignUp: View {
     @State var alert = false
     @State var error = ""
     @State var value: CGFloat = 0
+    @State var verify = false
+    @State var emailSent = false
 
     var body: some View {
         ZStack {
@@ -297,9 +304,11 @@ struct SignUp: View {
                     )
                 }
             }
-          
             if self.alert {
                 ErrorView(alert: self.$alert, error: self.$error)
+            }
+            if self.verify {
+                SuccessView(verify: self.$verify, emailSent: self.$emailSent, show: self.$show)
             }
         }
         .edgesIgnoringSafeArea(.top)
@@ -314,9 +323,6 @@ struct SignUp: View {
                         self.alert.toggle()
                         return
                     }
-                    UserDefaults.standard.set(true, forKey: "status")
-                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-                    
                     self.createUser()
                 }
             }
@@ -333,8 +339,19 @@ struct SignUp: View {
     
     func createUser() {
         let db = Firestore.firestore()
-        let uid = Auth.auth().currentUser?.uid
-        db.collection("user").document(uid!).setData(["email": self.email])
+        let user = Auth.auth().currentUser
+        db.collection("user").document(user!.uid).setData(["email": self.email])
+        print(self.error)
+        if self.error == "" {
+            user?.sendEmailVerification { (error) in
+                guard let error = error else {
+                    self.verify.toggle()
+                    return
+                }
+                self.error = "There was an issue verifying email"
+                self.alert.toggle()
+            }
+        }
     }
 }
 
@@ -364,6 +381,51 @@ struct ErrorView: View {
                     self.alert.toggle()
                 }) {
                     Text(self.error == "RESET" ? "OK" : "Cancel")
+                        .foregroundColor(.white)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 120)
+                }
+                .background(Color.blue)
+                .cornerRadius(20)
+                .padding(.top, 25)
+            }
+            .padding(.vertical, 25)
+            .frame(width: UIScreen.main.bounds.width - 70)
+            .background(Color.white)
+            .cornerRadius(25)
+        }
+        .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
+    }
+}
+
+struct SuccessView: View {
+    @State var color = Color.black.opacity(0.7)
+    @Binding var verify: Bool
+    @Binding var emailSent: Bool
+    @Binding var show: Bool
+    
+    
+    var body: some View {
+        GeometryReader {_ in
+            VStack {
+                HStack {
+                    Text("Email Sent")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(self.color)
+                    Spacer()
+                }.padding(.horizontal, 25)
+                
+                Text("A verification link has been sent to your email")
+                    .foregroundColor(self.color)
+                    .padding(.top)
+                    .padding(.horizontal, 25)
+                
+                Button(action: {
+                    self.show.toggle()
+                    self.emailSent.toggle()
+                }) {
+                    Text("OK")
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 120)
