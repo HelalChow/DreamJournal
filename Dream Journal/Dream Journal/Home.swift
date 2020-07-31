@@ -20,18 +20,26 @@ struct JournalList: View {
     @State var remove = false
     @ObservedObject var data = getData()
     let uid = Auth.auth().currentUser?.uid
+    @State var name = ""
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(spacing: 0) {
                 HStack {
                     if !show {
-                         Text("Dream Journal")
-                            .fontWeight(.bold)
-                            .font(.title)
-                            .foregroundColor(.blue)
-                            .opacity(0.7)
-                            .shadow(color: .gray, radius: 1, x: 0.5, y: 0.5)
+                        VStack(alignment: .leading) {
+                            Text("Dream Journal")
+                                .fontWeight(.bold)
+                                .font(.title)
+                                .foregroundColor(.blue)
+                                .opacity(0.7)
+                                .shadow(color: .gray, radius: 1, x: 0.5, y: 0.5)
+                            
+                            Text(self.name)
+                                .fontWeight(.bold)
+                                .font(.caption)
+                                .foregroundColor(.black)
+                        }
                     }
                     Spacer(minLength: 0)
                     HStack {
@@ -204,6 +212,9 @@ struct JournalList: View {
             }
         }
         .edgesIgnoringSafeArea(.vertical)
+        .onAppear {
+            self.getName()
+        }
         .sheet(isPresented: self.$show2) {
             EditView(title: self.$title, description: self.$description, docID: self.$docID, show: self.$show2)
         }
@@ -213,6 +224,15 @@ struct JournalList: View {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
         )
+    }
+    
+    func getName() {
+        let docRef = Firestore.firestore().collection("user").document(uid!)
+        docRef.getDocument(source: .cache) { (document, error) in
+            if let document = document {
+                self.name = document.get("name") as! String
+            }
+        }
     }
 }
 

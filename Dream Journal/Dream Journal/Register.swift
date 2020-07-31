@@ -15,6 +15,7 @@ struct SignUp: View {
     @State var color = Color.black.opacity(0.7)
     @State var email = ""
     @State var pass = ""
+    @State var name = ""
     @State var repass = ""
     @State var visible = false
     @State var revisible = false
@@ -41,6 +42,11 @@ struct SignUp: View {
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
                             .padding(.top, 0)
+                        TextField("Full Name", text: self.$name)
+                            .autocapitalization(.words)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color(.blue) : self.color, lineWidth:  2))
+                            .padding(.top, 25)
                         TextField("Email", text: self.$email)
                             .autocapitalization(.none)
                             .padding()
@@ -93,7 +99,7 @@ struct SignUp: View {
                         
                         Button(action: {
                             self.register()
-                            self.registerPressed.toggle()
+                            self.registerPressed = true
                         }) {
                             Text("Sign Up")
                                 .fontWeight(.bold)
@@ -109,7 +115,7 @@ struct SignUp: View {
                         
                         Spacer()
                     }
-                    .padding(.top, 100)
+                    .padding(.top, 75)
                     .padding(.horizontal, 25)
                     .modifier(Keyboard())
                     .simultaneousGesture(
@@ -121,13 +127,13 @@ struct SignUp: View {
                 }
             }
             if self.alert {
-                ErrorView(alert: self.$alert, error: self.$error, resend: self.$resend, verify2: self.$verify2)
+                RegisterErrorView(alert: self.$alert, error: self.$error, resend: self.$resend, verify2: self.$verify2, registerPressed: self.$registerPressed)
             }
             if self.verify {
                 SuccessView(verify: self.$verify, show: self.$show)
             }
             VStack {
-                if registerPressed && !verify {
+                if registerPressed && !verify && error == "" {
                     Spacer()
                     Indicator()
                     Spacer()
@@ -164,7 +170,7 @@ struct SignUp: View {
     func createUser() {
         let db = Firestore.firestore()
         let user = Auth.auth().currentUser
-        db.collection("user").document(user!.uid).setData(["email": self.email])
+        db.collection("user").document(user!.uid).setData(["email": self.email, "name": self.name])
         if self.error == "" {
             user?.sendEmailVerification { (error) in
                 guard let error = error else {
@@ -221,3 +227,67 @@ struct SuccessView: View {
     }
 }
 
+struct RegisterErrorView: View {
+    @State var color = Color.black.opacity(0.7)
+    @Binding var alert: Bool
+    @Binding var error: String
+    @Binding var resend: Bool
+    @Binding var verify2: Bool
+    @Binding var registerPressed: Bool
+    let user = Auth.auth().currentUser
+    
+    var body: some View {
+        GeometryReader {_ in
+            VStack {
+                HStack {
+                    Text(self.error == "RESET" ? "Message" : "Error")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(self.color)
+                    Spacer()
+                }.padding(.horizontal, 25)
+                
+                Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
+                    .foregroundColor(self.color)
+                    .padding(.top)
+                    .padding(.horizontal, 25)
+                
+                if self.resend {
+                    Button(action: {
+                        self.user?.sendEmailVerification { (error) in
+                            guard let error = error else {
+                                self.alert.toggle()
+                                self.verify2 = true
+                                return
+                            }
+                        }
+                    }) {
+                        Text("Resend Verification Email")
+                            .foregroundColor(Color.blue.opacity(0.7))
+                            .padding(.top)
+                            .padding(.horizontal, 25)
+                    }
+                }
+                
+                Button(action: {
+                    self.registerPressed.toggle()
+                    self.error = ""
+                    self.alert.toggle()
+                }) {
+                    Text(self.error == "RESET" ? "OK" : "Cancel")
+                        .foregroundColor(.white)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 120)
+                }
+                .background(Color.blue)
+                .cornerRadius(20)
+                .padding(.top, 25)
+            }
+            .padding(.vertical, 25)
+            .frame(width: UIScreen.main.bounds.width - 70)
+            .background(Color.white)
+            .cornerRadius(25)
+        }
+        .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
+    }
+}
