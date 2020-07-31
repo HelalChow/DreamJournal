@@ -15,12 +15,14 @@ struct ViewJournal: View {
     @State var title = ""
     @State var description = ""
     @State var docID = ""
-    @State var animationShow = false
+    @State var animationShow = true
     
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack(alignment: .topLeading) {
-            WaveAnimation()
+            if animationShow{
+                WaveAnimation()
+            }
             VStack(spacing: 0) {
                 HStack {
                     VStack {
@@ -31,7 +33,6 @@ struct ViewJournal: View {
                                     .font(.system(size: 24))
                                     .foregroundColor(.white).opacity(1)
                                 Text(journal.date)
-                                    .fontWeight(.bold)
                                     .font(.system(size: 14))
                             }
                             Spacer()
@@ -82,7 +83,7 @@ struct ViewJournal: View {
                         
                         
                     }
-                    .padding([.trailing, .top], 15)
+                    .padding([.trailing, .vertical], 15)
                 }
                 
                 ScrollView {
@@ -103,9 +104,9 @@ struct ViewJournal: View {
             
         }
         .navigationBarBackButtonHidden(true)
-//            .onAppear {
-//                self.animationShow = true
-//            }
+        .onAppear {
+            self.animationShow = true
+        }
         .sheet(isPresented: self.$show2) {
             EditView(title: self.$title, description: self.$description, docID: self.$docID, show: self.$show2)
         }

@@ -60,9 +60,10 @@ struct Login: View {
             ZStack(alignment: .topTrailing) {
                 GeometryReader{_ in
                     VStack {
-                        Image("wave")
+                        Image("logo")
                             .resizable()
-                            .frame(width: 150, height: 150)
+                        .scaledToFit()
+//                            .frame(width: 150, height: 150)
                         Text("Log in to your account")
                             .font(.title)
                             .fontWeight(.bold)

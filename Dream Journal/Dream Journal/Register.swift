@@ -34,9 +34,9 @@ struct SignUp: View {
             ZStack(alignment: .topLeading) {
                 GeometryReader{_ in
                     VStack {
-                        Image("wave")
+                        Image("logo")
                             .resizable()
-                            .frame(width: 150, height: 150)
+                            .scaledToFit()
                         Text("Sign up for an account")
                             .font(.title)
                             .fontWeight(.bold)
