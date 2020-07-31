@@ -12,6 +12,8 @@ import Firebase
 
 struct Authenticate: View {
     @State var show = false
+    @State var resend = false
+    @State var verify2 = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     
     var body: some View {
@@ -23,12 +25,12 @@ struct Authenticate: View {
             }
             else {
                 ZStack {
-                    NavigationLink(destination: SignUp(show: self.$show), isActive: self.$show) {
+                    NavigationLink(destination: SignUp(show: self.$show, resend: self.$resend, verify2: self.$verify2), isActive: self.$show) {
                         Text("")
                     }
                     .hidden()
 
-                    Login(show: self.$show)
+                    Login(show: self.$show, resend: self.$resend, verify2: self.$verify2)
                 }
             }
         }
@@ -49,6 +51,9 @@ struct Login: View {
     @Binding var show: Bool
     @State var alert = false
     @State var error = ""
+    @Binding var resend: Bool
+    @Binding var verify2: Bool
+    
     
     var body: some View {
         ZStack {
@@ -143,7 +148,10 @@ struct Login: View {
             }
             
             if self.alert {
-                ErrorView(alert: self.$alert, error: self.$error)
+                ErrorView(alert: self.$alert, error: self.$error, resend: self.$resend, verify2: self.$verify2)
+            }
+            if self.verify2 {
+                ReSentView(verify2: self.$verify2, resend: self.$resend)
             }
         }
         .simultaneousGesture(
@@ -166,6 +174,7 @@ struct Login: View {
                 if !user!.isEmailVerified {
                     self.error = "Email has not yet been verified"
                     self.alert.toggle()
+                    self.resend = true
                     return
                 }
                 UserDefaults.standard.set(true, forKey: "status")
@@ -201,7 +210,9 @@ struct ErrorView: View {
     @State var color = Color.black.opacity(0.7)
     @Binding var alert: Bool
     @Binding var error: String
-    
+    @Binding var resend: Bool
+    @Binding var verify2: Bool
+    let user = Auth.auth().currentUser
     
     var body: some View {
         GeometryReader {_ in
@@ -219,10 +230,70 @@ struct ErrorView: View {
                     .padding(.top)
                     .padding(.horizontal, 25)
                 
+                if self.resend {
+                    Button(action: {
+                        self.user?.sendEmailVerification { (error) in
+                            guard let error = error else {
+                                self.alert.toggle()
+                                self.verify2 = true
+                                return
+                            }
+                        }
+                    }) {
+                        Text("Resend Verification Email")
+                            .foregroundColor(Color.blue.opacity(0.7))
+                            .padding(.top)
+                            .padding(.horizontal, 25)
+                    }
+                }
+                
                 Button(action: {
                     self.alert.toggle()
                 }) {
                     Text(self.error == "RESET" ? "OK" : "Cancel")
+                        .foregroundColor(.white)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 120)
+                }
+                .background(Color.blue)
+                .cornerRadius(20)
+                .padding(.top, 25)
+            }
+            .padding(.vertical, 25)
+            .frame(width: UIScreen.main.bounds.width - 70)
+            .background(Color.white)
+            .cornerRadius(25)
+        }
+        .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
+    }
+}
+
+struct ReSentView: View {
+    @State var color = Color.black.opacity(0.7)
+    @Binding var verify2: Bool
+    @Binding var resend: Bool
+    
+    var body: some View {
+        GeometryReader {_ in
+            VStack {
+                HStack {
+                    Text("Email Sent")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(self.color)
+                    Spacer()
+                }.padding(.horizontal, 25)
+                
+                Text("A verification link has been sent to your email")
+                    .foregroundColor(self.color)
+                    .padding(.top)
+                    .padding(.horizontal, 25)
+                
+                Button(action: {
+                    self.verify2 = false
+                    self.resend = false
+                }) {
+                    Text("OK")
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 120)

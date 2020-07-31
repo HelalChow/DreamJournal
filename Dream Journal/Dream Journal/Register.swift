@@ -23,8 +23,9 @@ struct SignUp: View {
     @State var error = ""
     @State var value: CGFloat = 0
     @State var verify = false
-    @State var emailSent = false
     @State var registerPressed = false
+    @Binding var resend: Bool
+    @Binding var verify2: Bool
 
     var body: some View {
         ZStack {
@@ -120,10 +121,10 @@ struct SignUp: View {
                 }
             }
             if self.alert {
-                ErrorView(alert: self.$alert, error: self.$error)
+                ErrorView(alert: self.$alert, error: self.$error, resend: self.$resend, verify2: self.$verify2)
             }
             if self.verify {
-                SuccessView(verify: self.$verify, emailSent: self.$emailSent, show: self.$show)
+                SuccessView(verify: self.$verify, show: self.$show)
             }
             VStack {
                 if registerPressed && !verify {
@@ -180,7 +181,6 @@ struct SignUp: View {
 struct SuccessView: View {
     @State var color = Color.black.opacity(0.7)
     @Binding var verify: Bool
-    @Binding var emailSent: Bool
     @Binding var show: Bool
     
     
@@ -202,7 +202,6 @@ struct SuccessView: View {
                 
                 Button(action: {
                     self.show.toggle()
-                    self.emailSent.toggle()
                 }) {
                     Text("OK")
                         .foregroundColor(.white)
