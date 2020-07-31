@@ -12,12 +12,12 @@ import SwiftUI
 struct ViewJournal: View {
     var journal: Journal
     @State var show2 = false
-    @Binding var showJournal: Bool
     @State var title = ""
     @State var description = ""
     @State var docID = ""
     @State var animationShow = false
     
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack(alignment: .topLeading) {
             WaveAnimation()
@@ -29,7 +29,7 @@ struct ViewJournal: View {
                                 Text(journal.title)
                                     .fontWeight(.bold)
                                     .font(.system(size: 24))
-                                    .foregroundColor(.blue).opacity(1)
+                                    .foregroundColor(.white).opacity(1)
                                 Text(journal.date)
                                     .fontWeight(.bold)
                                     .font(.system(size: 14))
@@ -48,36 +48,37 @@ struct ViewJournal: View {
                                         Image(systemName: "pencil")
                                             .resizable()
                                             .frame(width: 19, height: 19)
-                                            .foregroundColor(.white).padding(8)
+                                            .foregroundColor(.blue).padding(8)
                                             .shadow(color: .black, radius: 1, x: 1, y: 1)
                                     }
-                                    .background(Color.blue.opacity(0.7))
+                                    .background(Color.white.opacity(0.7))
                                     .cornerRadius(20)
                                     .shadow(color: .gray, radius: 5, x: 1, y: 1)
                                     
                                     Button(action: {
-                                         self.showJournal.toggle()
+                                        self.presentationMode.wrappedValue.dismiss()
                                     }) {
                                         Text("Back")
                                             .fontWeight(.bold)
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.blue)
                                             .font(.system(size: 16))
                                             .shadow(color: .black, radius: 1, x: 1, y: 1)
                                     }
                                      .frame(width: 70, height: 35)
-                                    .background(Color.blue.opacity(0.7))
+                                    .background(Color.white.opacity(0.7))
                                     .cornerRadius(20)
                                     .shadow(color: .gray, radius: 5, x: 1, y: 1)
                                 }
                                 .padding(.top, 10)
                             }
-                        }.padding(.top)
+                        }.padding(.top, 38)
                     }
                     Spacer()
                 }
-                .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 40)
+                .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 0)
                 .padding(.horizontal)
                 .padding(.bottom, 20)
+                .background(Color.blue.opacity(0.7))
                 
                 ScrollView {
                     HStack {

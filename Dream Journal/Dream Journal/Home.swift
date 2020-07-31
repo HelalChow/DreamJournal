@@ -242,14 +242,46 @@ struct cellView: View {
     @Binding var showJournal: Bool
 
     var body: some View {
+//        ZStack {
+//            NavigationLink(destination: ViewJournal(journal: journal, showJournal: self.$showJournal), isActive: $showJournal) {
+//                Text("")
+//            }.hidden()
+//            Button(action: {
+//                self.showJournal.toggle()
+//                print("button pressed")
+//            }) {
+//                ZStack {
+//                    Rectangle().fill(Color.white)
+//                        .cornerRadius(10)
+//                        .shadow(color: .gray, radius: 5, x: 2, y: 2)
+//                        .opacity(0.9)
+//                    VStack {
+//                        HStack {
+//                            VStack (alignment: .leading) {
+//                                Text(journal.title).bold()
+//                                    .padding(.top, 8.0)
+//                                    .fixedSize(horizontal: false, vertical: true)
+//                                    .accentColor(Color.blue.opacity(0.7))
+//                                Text(journal.date)
+//                                    .font(.caption).padding(.bottom, 10.0)
+//                                    .accentColor(.black)
+//                                Text(journal.description)
+//                                    .font(.system(size: 14))
+//                                    .foregroundColor(.gray)
+//                                    .lineLimit(2)
+//                                    .padding(.bottom, 10.0)
+//                                    .fixedSize(horizontal: false, vertical: true)
+//                            }
+//                            .padding(.leading, 15.0)
+//                            Spacer()
+//                        }
+//                    }
+//                }.padding(.top, 1.0)
+//            }
+//        }
+        
         ZStack {
-            NavigationLink(destination: ViewJournal(journal: journal, showJournal: self.$showJournal), isActive: $showJournal) {
-                Text("")
-            }.hidden()
-            Button(action: {
-                self.showJournal.toggle()
-                print("button pressed")
-            }) {
+            NavigationLink(destination: ViewJournal(journal: journal)) {
                 ZStack {
                     Rectangle().fill(Color.white)
                         .cornerRadius(10)
