@@ -17,9 +17,6 @@ struct ContentView: View {
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)
-//                JournalList()
-//                    .navigationBarTitle("")
-//                    .navigationBarHidden(true)
             }
             .animation(.default)
 //            .background(Color.black)

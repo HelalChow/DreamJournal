@@ -12,6 +12,7 @@ import Firebase
 
 struct JournalList: View {
     @State var show = false
+    @State var showJournal = false
     @State var txt = ""
     @State var show2 = false
     @State var title = ""
@@ -127,7 +128,7 @@ struct JournalList: View {
                                 else {
                                     ForEach(self.data.datas.reversed().filter({$0.title.lowercased().contains(self.txt.lowercased())})) {entry in
                                         HStack {
-                                            cellView(journal: entry)
+                                            cellView(journal: entry, showJournal: self.$showJournal)
                                             if self.remove {
                                                 Button(action: {
                                                     let db = Firestore.firestore()
@@ -150,7 +151,7 @@ struct JournalList: View {
                             VStack (spacing: 15) {
                                 ForEach(self.data.datas.reversed()) {entry in
                                     HStack {
-                                        cellView(journal: entry)
+                                        cellView(journal: entry, showJournal: self.$showJournal)
                                         if self.remove {
                                             Button(action: {
                                                 let db = Firestore.firestore()
@@ -238,36 +239,45 @@ struct JournalList: View {
 
 struct cellView: View {
     var journal: Journal
+    @Binding var showJournal: Bool
 
     var body: some View {
-        NavigationLink(destination: ViewJournal(journal: journal)) {
-            ZStack {
-                Rectangle().fill(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: .gray, radius: 5, x: 2, y: 2)
-                    .opacity(0.9)
-                VStack {
-                    HStack {
-                        VStack (alignment: .leading) {
-                            Text(journal.title).bold()
-                                .padding(.top, 8.0)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .accentColor(Color.blue.opacity(0.7))
-                            Text(journal.date)
-                                .font(.caption).padding(.bottom, 10.0)
-                                .accentColor(.black)
-                            Text(journal.description)
-                                .font(.system(size: 14))
-                                .foregroundColor(.gray)
-                                .lineLimit(2)
-                                .padding(.bottom, 10.0)
-                                .fixedSize(horizontal: false, vertical: true)
+        ZStack {
+            NavigationLink(destination: ViewJournal(journal: journal, showJournal: self.$showJournal), isActive: $showJournal) {
+                Text("")
+            }.hidden()
+            Button(action: {
+                self.showJournal.toggle()
+                print("button pressed")
+            }) {
+                ZStack {
+                    Rectangle().fill(Color.white)
+                        .cornerRadius(10)
+                        .shadow(color: .gray, radius: 5, x: 2, y: 2)
+                        .opacity(0.9)
+                    VStack {
+                        HStack {
+                            VStack (alignment: .leading) {
+                                Text(journal.title).bold()
+                                    .padding(.top, 8.0)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .accentColor(Color.blue.opacity(0.7))
+                                Text(journal.date)
+                                    .font(.caption).padding(.bottom, 10.0)
+                                    .accentColor(.black)
+                                Text(journal.description)
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.gray)
+                                    .lineLimit(2)
+                                    .padding(.bottom, 10.0)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                            .padding(.leading, 15.0)
+                            Spacer()
                         }
-                        .padding(.leading, 15.0)
-                        Spacer()
                     }
-                }
-            }.padding(.top, 1.0)
+                }.padding(.top, 1.0)
+            }
         }
     }
 }
