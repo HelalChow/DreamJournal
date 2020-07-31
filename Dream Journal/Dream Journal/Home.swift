@@ -29,12 +29,12 @@ struct JournalList: View {
                 HStack {
                     if !show {
                         VStack(alignment: .leading) {
-                            Text("Dream Journal")
+                            Text("Journal Wave")
                                 .fontWeight(.bold)
                                 .font(.title)
                                 .foregroundColor(.blue)
                                 .opacity(0.7)
-                                .shadow(color: .gray, radius: 1, x: 0.5, y: 0.5)
+                                .shadow(color: .black, radius: 0.5, x: 1, y: 1)
                             
                             Text(self.name)
                                 .fontWeight(.bold)

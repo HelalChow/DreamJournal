@@ -20,9 +20,7 @@ struct ViewJournal: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack(alignment: .topLeading) {
-            if animationShow{
-                WaveAnimation()
-            }
+            WaveAnimation()
             VStack(spacing: 0) {
                 HStack {
                     VStack {
@@ -104,9 +102,6 @@ struct ViewJournal: View {
             
         }
         .navigationBarBackButtonHidden(true)
-        .onAppear {
-            self.animationShow = true
-        }
         .sheet(isPresented: self.$show2) {
             EditView(title: self.$title, description: self.$description, docID: self.$docID, show: self.$show2)
         }
