@@ -27,7 +27,7 @@ struct EditView: View {
                         .foregroundColor(.blue)
                         .opacity(0.8)
                         .padding([.top, .leading], 20)
-                        .shadow(color: .gray, radius: 1, x: 0.5, y: 0.5)
+                        .shadow(color: .black, radius: 0.5, x: 1, y: 1)
                     Spacer()
                     Button(action: {
                         self.show.toggle()

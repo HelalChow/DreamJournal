@@ -42,11 +42,13 @@ struct ViewJournal: View {
                 .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + -30)
                 .padding(.horizontal)
                 .padding(.bottom, 20)
-                .background(Color.blue.opacity(0.5))
+                .background(Color.blue.opacity(0.6))
                 
                 HStack {
                     Spacer()
                     HStack(alignment: .top, spacing: 10) {
+                        Spacer()
+                        
                         Button(action: {
                             self.docID = self.journal.id
                             self.title = self.journal.title
@@ -60,7 +62,7 @@ struct ViewJournal: View {
                                 .foregroundColor(.white).padding(8)
                                 .shadow(color: .black, radius: 1, x: 1, y: 1)
                         }
-                        .background(Color.blue.opacity(0.7))
+                        .background(Color.blue.opacity(0.6))
                         .cornerRadius(20)
                         .shadow(color: .gray, radius: 5, x: 1, y: 1)
                         
@@ -74,9 +76,11 @@ struct ViewJournal: View {
                                 .shadow(color: .black, radius: 1, x: 1, y: 1)
                         }
                          .frame(width: 70, height: 35)
-                        .background(Color.blue.opacity(0.7))
+                        .background(Color.blue.opacity(0.65))
                         .cornerRadius(20)
                         .shadow(color: .gray, radius: 5, x: 1, y: 1)
+                        
+                        
                     }
                     .padding([.trailing, .top], 15)
                 }
