@@ -35,50 +35,51 @@ struct ViewJournal: View {
                                     .font(.system(size: 14))
                             }
                             Spacer()
-                            HStack {
-                                Spacer()
-                                HStack(alignment: .top, spacing: 10) {
-                                    Button(action: {
-                                        self.docID = self.journal.id
-                                        self.title = self.journal.title
-                                        self.description = self.journal.description
-                                        self.animationShow.toggle()
-                                        self.show2.toggle()
-                                    }) {
-                                        Image(systemName: "pencil")
-                                            .resizable()
-                                            .frame(width: 19, height: 19)
-                                            .foregroundColor(.blue).padding(8)
-                                            .shadow(color: .black, radius: 1, x: 1, y: 1)
-                                    }
-                                    .background(Color.white.opacity(0.7))
-                                    .cornerRadius(20)
-                                    .shadow(color: .gray, radius: 5, x: 1, y: 1)
-                                    
-                                    Button(action: {
-                                        self.presentationMode.wrappedValue.dismiss()
-                                    }) {
-                                        Text("Back")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.blue)
-                                            .font(.system(size: 16))
-                                            .shadow(color: .black, radius: 1, x: 1, y: 1)
-                                    }
-                                     .frame(width: 70, height: 35)
-                                    .background(Color.white.opacity(0.7))
-                                    .cornerRadius(20)
-                                    .shadow(color: .gray, radius: 5, x: 1, y: 1)
-                                }
-                                .padding(.top, 10)
-                            }
                         }.padding(.top, 38)
                     }
                     Spacer()
                 }
-                .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 0)
+                .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + -30)
                 .padding(.horizontal)
                 .padding(.bottom, 20)
-                .background(Color.blue.opacity(0.7))
+                .background(Color.blue.opacity(0.5))
+                
+                HStack {
+                    Spacer()
+                    HStack(alignment: .top, spacing: 10) {
+                        Button(action: {
+                            self.docID = self.journal.id
+                            self.title = self.journal.title
+                            self.description = self.journal.description
+                            self.animationShow.toggle()
+                            self.show2.toggle()
+                        }) {
+                            Image(systemName: "pencil")
+                                .resizable()
+                                .frame(width: 19, height: 19)
+                                .foregroundColor(.white).padding(8)
+                                .shadow(color: .black, radius: 1, x: 1, y: 1)
+                        }
+                        .background(Color.blue.opacity(0.7))
+                        .cornerRadius(20)
+                        .shadow(color: .gray, radius: 5, x: 1, y: 1)
+                        
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Text("Back")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .font(.system(size: 16))
+                                .shadow(color: .black, radius: 1, x: 1, y: 1)
+                        }
+                         .frame(width: 70, height: 35)
+                        .background(Color.blue.opacity(0.7))
+                        .cornerRadius(20)
+                        .shadow(color: .gray, radius: 5, x: 1, y: 1)
+                    }
+                    .padding([.trailing, .top], 15)
+                }
                 
                 ScrollView {
                     HStack {
