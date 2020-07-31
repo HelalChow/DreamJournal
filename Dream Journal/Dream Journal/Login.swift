@@ -163,9 +163,9 @@ struct Login: View {
     }
     
     func verify() {
-        let user = Auth.auth().currentUser
         if self.email != "" && self.pass != "" {
             Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res, err) in
+                let user = Auth.auth().currentUser
                 if err != nil {
                     self.error = err!.localizedDescription
                     self.alert.toggle()
