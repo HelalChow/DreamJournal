@@ -55,7 +55,7 @@
 		1B43E29424D1D1CD000B18B9 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		1B43E29624D33477000B18B9 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		1B43E29824D3AA9B000B18B9 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
-		1BD639F824CF950E00FAB9A6 /* Dream Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BD639F824CF950E00FAB9A6 /* Journal Wave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Journal Wave.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD639FB24CF950E00FAB9A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BD639FD24CF950E00FAB9A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1BD639FF24CF950E00FAB9A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		1BD639F924CF950E00FAB9A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1BD639F824CF950E00FAB9A6 /* Dream Journal.app */,
+				1BD639F824CF950E00FAB9A6 /* Journal Wave.app */,
 				1BD63A0E24CF950E00FAB9A6 /* Dream JournalTests.xctest */,
 				1BD63A1924CF950E00FAB9A6 /* Dream JournalUITests.xctest */,
 			);
@@ -142,11 +142,11 @@
 				1B43E29224D0F553000B18B9 /* EditDetails.swift */,
 				1B43E29424D1D1CD000B18B9 /* Login.swift */,
 				1B43E29824D3AA9B000B18B9 /* Register.swift */,
+				1B43E29624D33477000B18B9 /* Keyboard.swift */,
 				1BD63A0124CF950E00FAB9A6 /* Assets.xcassets */,
 				1BD63A0624CF950E00FAB9A6 /* LaunchScreen.storyboard */,
 				1BD63A0924CF950E00FAB9A6 /* Info.plist */,
 				1BD63A0324CF950E00FAB9A6 /* Preview Content */,
-				1B43E29624D33477000B18B9 /* Keyboard.swift */,
 			);
 			path = "Dream Journal";
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 			);
 			name = "Dream Journal";
 			productName = "Dream Journal";
-			productReference = 1BD639F824CF950E00FAB9A6 /* Dream Journal.app */;
+			productReference = 1BD639F824CF950E00FAB9A6 /* Journal Wave.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1BD63A0D24CF950E00FAB9A6 /* Dream JournalTests */ = {
@@ -626,9 +626,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Dream-Journal";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Journal Wave";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -648,9 +648,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Dream-Journal";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Journal Wave";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

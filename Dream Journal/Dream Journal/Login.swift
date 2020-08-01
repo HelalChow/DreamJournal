@@ -62,11 +62,11 @@ struct Login: View {
                     VStack {
                         Image("logo")
                             .resizable()
-                        .scaledToFit()
+                            .scaledToFit()
                         Text("JOURNAL WAVE")
                             .font(.title)
                             .fontWeight(.bold)
-                            .foregroundColor(Color.blue.opacity(0.85))
+                            .foregroundColor(Color.blue.opacity(0.75))
                             .padding(.top, 0)
                             .shadow(color: .black, radius: 0.5, x: 0.5, y: 0.5)
                         Text("Log in to your account")
@@ -78,7 +78,7 @@ struct Login: View {
                             .autocapitalization(.none)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color(.blue) : self.color, lineWidth:  2))
-                            .padding(.top, 20)
+                            .padding(.top, 10)
                         
                         HStack(spacing: 15) {
                             VStack {
@@ -100,7 +100,7 @@ struct Login: View {
                         }
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color(.blue) : self.color, lineWidth:  2))
-                        .padding(.top, 25)
+                        .padding(.top, 10)
                         
                         HStack {
                             HStack {
