@@ -617,7 +617,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Dream Journal/Preview Content\"";
-				DEVELOPMENT_TEAM = FQX45R5BVV;
+				DEVELOPMENT_TEAM = 8LSGQYWP8T;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Dream Journal/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -625,7 +625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Dream-Journal";
+				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Journal-Wave";
 				PRODUCT_NAME = "Journal Wave";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -639,7 +639,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Dream Journal/Preview Content\"";
-				DEVELOPMENT_TEAM = FQX45R5BVV;
+				DEVELOPMENT_TEAM = 8LSGQYWP8T;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Dream Journal/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -647,7 +647,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Dream-Journal";
+				PRODUCT_BUNDLE_IDENTIFIER = "hchowdhury.Journal-Wave";
 				PRODUCT_NAME = "Journal Wave";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
