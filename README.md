@@ -1,1 +1,1 @@
-# DreamJournal
+# Journal Wave
